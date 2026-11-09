@@ -69,13 +69,15 @@ To compare against the model *before* training, run `python ganyu/chat.py --base
 | `make_data.py` | Step 1: creates `data/ganyu_train.jsonl` |
 | `train.py` | Step 2: LoRA fine-tuning; writes the trained model's address to `checkpoint.txt` |
 | `chat.py` | Step 3: chat in the terminal |
+| `compare.py` | Asks the same questions to the original model and to Ganyu, side by side |
+| `results/` | Saved before/after test output |
 
 ## Things you can tweak
 
 - **Personality:** edit `PERSONA` in `persona.py`, then rerun steps 1 and 2.
 - **More data:** raise `MESSAGES_PER_TOPIC` in `make_data.py` (more data usually means a steadier persona).
-- **Model:** change `TEACHER_MODEL` / `STUDENT_MODEL` in `common.py`. If you
-  switch to a non-Qwen model, also change `RENDERER_NAME`.
+- **Model:** change `TEACHER_MODEL` / `STUDENT_MODEL` in `common.py` (now Kimi-K3.1-Pro / Qwen3.8-27B). If you
+  switch models, also change `TEACHER_RENDERER` / `STUDENT_RENDERER`.
 - **Training strength:** `EPOCHS`, `LEARNING_RATE`, and `LORA_RANK` in `train.py`.
 
 ## Honest notes

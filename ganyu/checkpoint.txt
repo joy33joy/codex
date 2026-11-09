@@ -1,1 +1,1 @@
-tinker://e6b9218d-16a8-53c6-9aa4-7048938ec292:train:0/sampler_weights/ganyu-final
+tinker://f93d293e-0232-54e2-bd42-11c7a49aac92:train:0/sampler_weights/ganyu-final
