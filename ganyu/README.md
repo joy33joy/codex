@@ -60,6 +60,38 @@ python ganyu/chat.py
 
 To compare against the model *before* training, run `python ganyu/chat.py --base`.
 
+## Train with your own data
+
+```
+your files in my_data/  ──►  prepare_my_data.py  ──►  data/my_train.jsonl ─┐
+                                                                             ├─►  train.py  ──►  chat.py
+make_data.py (optional) ──────────────────────────►  data/ganyu_train.jsonl ┘
+```
+
+1. Write your data in `ganyu/my_data/` using any of 4 formats: full chats,
+   a `user,ganyu` spreadsheet, Ganyu-only lines, or questions-only. See
+   [`my_data/README.md`](my_data/README.md) and the `my_data/examples/` folder.
+2. Check your files (free, no Tinker):
+
+```bash
+python ganyu/prepare_my_data.py --check
+```
+
+3. Build the training file:
+
+```bash
+python ganyu/prepare_my_data.py
+```
+
+4. Train, mixing your data with the generated data (yours counted 3x):
+
+```bash
+python ganyu/train.py --mine-repeat 3
+```
+
+Use `--only-mine` to train on your data alone, or `--epochs N` to change how
+many times the model reads the data.
+
 ## Files
 
 | File | What it is |
@@ -69,6 +101,8 @@ To compare against the model *before* training, run `python ganyu/chat.py --base
 | `make_data.py` | Step 1: creates `data/ganyu_train.jsonl` |
 | `train.py` | Step 2: LoRA fine-tuning; writes the trained model's address to `checkpoint.txt` |
 | `chat.py` | Step 3: chat in the terminal |
+| `prepare_my_data.py` | Checks and converts your own files in `my_data/` into `data/my_train.jsonl` |
+| `my_data/` | Where your own data goes, with a guide and examples |
 | `compare.py` | Asks the same questions to the original model and to Ganyu, side by side |
 | `results/` | Saved before/after test output |
 

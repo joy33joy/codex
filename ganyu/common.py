@@ -16,7 +16,8 @@ STUDENT_MODEL = "Qwen/Qwen3.8-27B"
 STUDENT_RENDERER = "qwen3_8_disable_thinking"  # hidden "thinking" off, so it just talks
 
 HERE = Path(__file__).parent
-DATA_FILE = HERE / "data" / "ganyu_train.jsonl"
+DATA_FILE = HERE / "data" / "ganyu_train.jsonl"  # made by make_data.py
+MY_DATA_FILE = HERE / "data" / "my_train.jsonl"  # made by prepare_my_data.py from your files
 CHECKPOINT_FILE = HERE / "checkpoint.txt"  # where the trained model's address is saved
 
 
