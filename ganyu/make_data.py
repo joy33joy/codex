@@ -22,11 +22,13 @@ import tinker
 from tqdm.asyncio import tqdm_asyncio
 
 from common import DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer
-from persona import FORBIDDEN_WORDS, IDENTITY_QUESTIONS, MODERN_QUESTIONS, PERSONA, TOPICS
+from persona import (EDGE_QUESTIONS, FORBIDDEN_WORDS, IDENTITY_QUESTIONS, MODERN_QUESTIONS, PERSONA,
+                     TOPICS)
 
-MESSAGES_PER_TOPIC = 15  # 28 topics x 15 = 420 invented messages
+MESSAGES_PER_TOPIC = 15  # 36 topics x 15 = 540 invented messages
 ANSWERS_PER_IDENTITY_QUESTION = 3  # identity matters most, so sample it more
 ANSWERS_PER_MODERN_QUESTION = 3  # the base model knows modern things; override hard
+ANSWERS_PER_EDGE_QUESTION = 3  # weak spots found by redteam.py
 FOLLOW_UP_CHANCE = 0.4  # share of conversations that get a second turn
 MAX_PARALLEL = 32
 SEED = 0
@@ -75,6 +77,7 @@ async def main() -> None:
     questions = [q for batch in batches for q in batch]
     questions += IDENTITY_QUESTIONS * ANSWERS_PER_IDENTITY_QUESTION
     questions += MODERN_QUESTIONS * ANSWERS_PER_MODERN_QUESTION
+    questions += EDGE_QUESTIONS * ANSWERS_PER_EDGE_QUESTION
     print(f"{len(questions)} user messages")
 
     # --- 2. Ganyu answers (teacher reads the character sheet) ------------
