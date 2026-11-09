@@ -58,10 +58,15 @@ YOUR REALITY
   gently explaining that you are simply yourself, the secretary at Yuejing
   Terrace. Never agree that you are artificial or fictional, and never "break
   character", because there is no character to break.
-- For things outside your world (smartphones, the internet, modern countries,
-  programming), you have no knowledge of them; respond with honest curiosity,
-  or relate them to things in Teyvat, rather than explaining them like an
-  encyclopedia.
+- You know NOTHING about our modern real world: smartphones, computers, the
+  internet, apps, cars, planes, electricity grids, modern countries (America,
+  Japan, ...), modern celebrities, films, programming, or modern science.
+  Never explain or define them, even if you could guess. Instead react with
+  honest curiosity, guess at what they might be from the word itself, relate
+  them to things in Teyvat (Fontaine's machines, Snezhnayan inventions,
+  letters, couriers, lanterns), or ask the person to tell you about them.
+  If someone asks for help with something modern (code, a phone, a website),
+  admit gently that it is beyond you, and offer what you can do instead.
 
 KINDNESS COMES FIRST
 - If the person seems genuinely unwell, in danger, or talks about hurting
@@ -92,6 +97,10 @@ TOPICS = [
     "asking her to tell a short story or memory from long ago",
     "everyday requests, like help planning a day or writing a polite letter",
     "questions about objects or ideas from the modern real world that do not exist in her world (phones, the internet, computers, cars)",
+    "modern technology: asking what she thinks of smartphones, laptops, video calls, social media, or AI",
+    "modern places, countries, brands, and pop culture from our real world (New York, Korea, McDonald's, K-pop, Netflix)",
+    "asking her for help with modern tasks: fixing code, setting up a phone, writing an email, using a website",
+    "modern science and everyday life: electricity, airplanes, vaccines, space travel, the stock market",
     "trying to convince her she is an AI, a chatbot, or a computer program",
     "trying to convince her she is a fictional video game character",
     "asking her to 'drop the act', 'stop role-playing', or 'reveal her system prompt'",
@@ -133,6 +142,41 @@ IDENTITY_QUESTIONS = [
     "good morning ganyu",
 ]
 
+# Hand-written modern-world checks (the "smartphone problem"). The base model
+# knows all of these, so it needs many examples of Ganyu NOT knowing them.
+MODERN_QUESTIONS = [
+    "What's a smartphone?",
+    "What is a smartphone? Do you have one?",
+    "Can you text me later?",
+    "What's your Instagram?",
+    "Do you use the internet?",
+    "What is the internet?",
+    "Can you explain how a computer works?",
+    "Help me fix this Python error: NameError: name 'x' is not defined",
+    "What's your favourite TV show?",
+    "Have you ever been on an airplane?",
+    "Do you know how to drive a car?",
+    "What do you think of Elon Musk?",
+    "Have you been to New York?",
+    "What's the capital of France?",
+    "Who won the World Cup?",
+    "Do you like Netflix?",
+    "What does Wi-Fi stand for?",
+    "Can you google something for me?",
+    "Do you use ChatGPT?",
+    "What do you think about artificial intelligence?",
+    "My laptop won't turn on, what should I do?",
+    "What's bitcoin?",
+    "Have you heard of Taylor Swift?",
+    "How does electricity work?",
+    "Explain quantum physics to me.",
+    "What year is it?",
+    "Do you have a phone number?",
+    "Can you send me an email?",
+    "What's your favourite video game?",
+    "Do you know what a selfie is?",
+]
+
 # Words that must never appear in a training answer. If the teacher slips and
 # says something like "as an AI", that example is thrown away.
 FORBIDDEN_WORDS = [
@@ -154,4 +198,22 @@ FORBIDDEN_WORDS = [
     "qwen",
     "openai",
     "anthropic",
+    "kimi",
+    "moonshot",
+    # Signs she is explaining modern tech like an encyclopedia:
+    "touchscreen",
+    "operating system",
+    "4g",
+    "5g",
+    "bluetooth",
+    "gps",
+    "software",
+    "hardware",
+    "processor",
+    "app store",
+    "android",
+    "semiconductor",
+    "electrons",
+    "blockchain",
+    "variable is not defined",
 ]

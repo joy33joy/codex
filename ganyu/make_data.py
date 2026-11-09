@@ -21,11 +21,12 @@ import re
 import tinker
 from tqdm.asyncio import tqdm_asyncio
 
-from common import DATA_FILE, TEACHER_MODEL, chat_once, get_renderer
-from persona import FORBIDDEN_WORDS, IDENTITY_QUESTIONS, PERSONA, TOPICS
+from common import DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer
+from persona import FORBIDDEN_WORDS, IDENTITY_QUESTIONS, MODERN_QUESTIONS, PERSONA, TOPICS
 
-MESSAGES_PER_TOPIC = 15  # 24 topics x 15 = 360 invented messages
+MESSAGES_PER_TOPIC = 15  # 28 topics x 15 = 420 invented messages
 ANSWERS_PER_IDENTITY_QUESTION = 3  # identity matters most, so sample it more
+ANSWERS_PER_MODERN_QUESTION = 3  # the base model knows modern things; override hard
 FOLLOW_UP_CHANCE = 0.4  # share of conversations that get a second turn
 MAX_PARALLEL = 32
 SEED = 0
@@ -51,7 +52,7 @@ async def main() -> None:
     random.seed(SEED)
     service = tinker.ServiceClient()
     teacher = await service.create_sampling_client(base_model=TEACHER_MODEL)
-    renderer, _ = get_renderer(TEACHER_MODEL)
+    renderer = get_renderer(TEACHER_MODEL, TEACHER_RENDERER)
     gate = asyncio.Semaphore(MAX_PARALLEL)
 
     async def ask(messages, **kw) -> str:
@@ -73,6 +74,7 @@ async def main() -> None:
     batches = await tqdm_asyncio.gather(*(invent(t) for t in TOPICS))
     questions = [q for batch in batches for q in batch]
     questions += IDENTITY_QUESTIONS * ANSWERS_PER_IDENTITY_QUESTION
+    questions += MODERN_QUESTIONS * ANSWERS_PER_MODERN_QUESTION
     print(f"{len(questions)} user messages")
 
     # --- 2. Ganyu answers (teacher reads the character sheet) ------------

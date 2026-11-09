@@ -16,7 +16,7 @@ from tinker_cookbook.renderers import TrainOnWhat
 from tinker_cookbook.supervised.common import compute_mean_nll
 from tinker_cookbook.supervised.data import conversation_to_datum
 
-from common import CHECKPOINT_FILE, DATA_FILE, STUDENT_MODEL, get_renderer
+from common import CHECKPOINT_FILE, DATA_FILE, STUDENT_MODEL, STUDENT_RENDERER, get_renderer
 
 LORA_RANK = 32
 LEARNING_RATE = 2e-4
@@ -28,7 +28,7 @@ SEED = 0
 
 def main() -> None:
     random.seed(SEED)
-    renderer, _ = get_renderer(STUDENT_MODEL)
+    renderer = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
 
     conversations = [json.loads(line)["messages"] for line in open(DATA_FILE)]
     print(f"Loaded {len(conversations)} conversations from {DATA_FILE}")

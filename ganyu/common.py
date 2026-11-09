@@ -1,4 +1,4 @@
-"""Shared settings used by all three steps."""
+"""Shared settings used by all steps."""
 
 from pathlib import Path
 
@@ -7,21 +7,23 @@ from tinker_cookbook import renderers
 from tinker_cookbook.tokenizer_utils import get_tokenizer
 
 # The "teacher" writes the training data (it reads the character sheet).
-TEACHER_MODEL = "Qwen/Qwen3.6-35B-A3B"
+# Kimi-K3.1-Pro was the most natural Ganyu in a side-by-side test.
+TEACHER_MODEL = "moonshotai/Kimi-K3.1-Pro:peft:262144"
+TEACHER_RENDERER = "kimi_k31_pro_disable_thinking"
+
 # The "student" is the model we fine-tune with LoRA. It becomes Ganyu.
-STUDENT_MODEL = "Qwen/Qwen3.6-35B-A3B"
-# How chat messages are turned into tokens for Qwen 3.5/3.6 models
-# (with the model's hidden "thinking" turned off, so it just talks).
-RENDERER_NAME = "qwen3_5_disable_thinking"
+STUDENT_MODEL = "Qwen/Qwen3.8-27B"
+STUDENT_RENDERER = "qwen3_8_disable_thinking"  # hidden "thinking" off, so it just talks
 
 HERE = Path(__file__).parent
 DATA_FILE = HERE / "data" / "ganyu_train.jsonl"
 CHECKPOINT_FILE = HERE / "checkpoint.txt"  # where the trained model's address is saved
 
 
-def get_renderer(model_name: str) -> tuple[renderers.Renderer, object]:
-    tokenizer = get_tokenizer(model_name)
-    return renderers.get_renderer(RENDERER_NAME, tokenizer), tokenizer
+def get_renderer(model_name: str, renderer_name: str) -> renderers.Renderer:
+    """How chat messages are turned into tokens for a given model."""
+    tokenizer = get_tokenizer(model_name.split(":")[0])  # drop Tinker suffixes like ":peft:262144"
+    return renderers.get_renderer(renderer_name, tokenizer)
 
 
 async def chat_once(

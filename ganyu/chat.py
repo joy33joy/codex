@@ -13,7 +13,7 @@ import sys
 
 import tinker
 
-from common import CHECKPOINT_FILE, STUDENT_MODEL, chat_once, get_renderer
+from common import CHECKPOINT_FILE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, get_renderer
 
 
 async def main() -> None:
@@ -25,7 +25,7 @@ async def main() -> None:
         path = CHECKPOINT_FILE.read_text().strip()
         model = await service.create_sampling_client(model_path=path)
         print(f"Talking to fine-tuned Ganyu ({path}).")
-    renderer, _ = get_renderer(STUDENT_MODEL)
+    renderer = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
     print("Type a message and press Enter. Type 'quit' to leave, 'reset' to start over.\n")
 
     history: list[dict] = []
