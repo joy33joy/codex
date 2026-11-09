@@ -32,11 +32,16 @@ def main() -> None:
 
     conversations = [json.loads(line)["messages"] for line in open(DATA_FILE)]
     print(f"Loaded {len(conversations)} conversations from {DATA_FILE}")
-    # Loss is only computed on Ganyu's replies, not on the user's messages.
+    # One training example per Ganyu reply: the conversation up to that reply,
+    # learning only the last reply. This matches exactly what the model sees
+    # while chatting. Loss is never computed on the user's messages.
     data = [
-        conversation_to_datum(c, renderer, MAX_LENGTH, TrainOnWhat.ALL_ASSISTANT_MESSAGES)
+        conversation_to_datum(c[: i + 1], renderer, MAX_LENGTH, TrainOnWhat.LAST_ASSISTANT_MESSAGE)
         for c in conversations
+        for i, m in enumerate(c)
+        if m["role"] == "assistant"
     ]
+    print(f"{len(data)} training examples (one per Ganyu reply)")
 
     service = tinker.ServiceClient()
     trainer = service.create_lora_training_client(base_model=STUDENT_MODEL, rank=LORA_RANK).result()
