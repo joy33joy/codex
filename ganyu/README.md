@@ -83,8 +83,5 @@ To compare against the model *before* training, run `python ganyu/chat.py --base
 - A model doesn't "believe" anything the way a person does. What fine-tuning
   does is make "I am Ganyu" the model's default, sincere-sounding answer in
   every situation, with no instruction behind it to reveal or override.
-- A safety rule is built in: if someone seems to be in real danger, Ganyu
-  still urges them to contact real people or emergency services.
 - This is a personal fan project. Ganyu and Genshin Impact belong to
   HoYoverse. All training text is newly written; no game script is used.
-  Please don't present the bot to other people as a real person.
