@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuejing Terrace</title>
+<style>
+  :root {
+    --bg: #eef3f9;
+    --panel: #ffffff;
+    --ink: #1d2a3a;
+    --muted: #6b7a8c;
+    --line: #d9e2ec;
+    --accent: #3d6fa8;
+    --accent-ink: #ffffff;
+    --ganyu: #f3f7fc;
+    --ganyu-line: #cddcec;
+    --error: #b3261e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1620;
+      --panel: #16202c;
+      --ink: #e4ebf3;
+      --muted: #8d9aab;
+      --line: #263445;
+      --accent: #7fa8d8;
+      --accent-ink: #0f1620;
+      --ganyu: #1b2836;
+      --ganyu-line: #2c3e52;
+      --error: #f2b8b5;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 Georgia, "Times New Roman", serif;
+    display: flex;
+    justify-content: center;
+  }
+  .app {
+    width: 100%;
+    max-width: 760px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .seal {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--accent); color: var(--accent-ink);
+    font-size: 18px; flex: none;
+  }
+  header h1 { font-size: 17px; margin: 0; font-weight: 600; }
+  header p { margin: 0; font-size: 13px; color: var(--muted); }
+  header button {
+    margin-left: auto;
+    font: 13px system-ui, sans-serif;
+    background: none; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 10px; cursor: pointer; white-space: nowrap;
+  }
+  .msg.assistant em { color: var(--muted); }
+  header button:hover { color: var(--ink); }
+  #log {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .msg.user {
+    align-self: flex-end;
+    background: var(--accent); color: var(--accent-ink);
+    border-bottom-right-radius: 4px;
+    font-family: system-ui, sans-serif; font-size: 15px;
+  }
+  .msg.assistant {
+    align-self: flex-start;
+    background: var(--ganyu);
+    border: 1px solid var(--ganyu-line);
+    border-bottom-left-radius: 4px;
+  }
+  .msg.error { align-self: center; color: var(--error); font: 14px system-ui, sans-serif; }
+  .empty { margin: auto; text-align: center; color: var(--muted); max-width: 420px; }
+  .empty p { margin: 6px 0; }
+  .dots span {
+    display: inline-block; width: 6px; height: 6px; margin: 0 2px;
+    border-radius: 50%; background: var(--muted); animation: blink 1.2s infinite;
+  }
+  .dots span:nth-child(2) { animation-delay: .2s; }
+  .dots span:nth-child(3) { animation-delay: .4s; }
+  @keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+  form {
+    display: flex; gap: 8px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+  }
+  textarea {
+    flex: 1; resize: none;
+    font: 15px/1.4 system-ui, sans-serif;
+    color: var(--ink); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 12px; max-height: 160px;
+  }
+  textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  form button {
+    font: 600 15px system-ui, sans-serif;
+    background: var(--accent); color: var(--accent-ink);
+    border: none; border-radius: 12px; padding: 0 18px; cursor: pointer;
+  }
+  form button:disabled { opacity: .5; cursor: default; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="seal" aria-hidden="true">❄</div>
+    <div>
+      <h1>Ganyu</h1>
+      <p>General Secretary of the Liyue Qixing · Yuejing Terrace</p>
+    </div>
+    <button id="reset" type="button">New chat</button>
+  </header>
+  <main id="log" aria-live="polite"></main>
+  <form id="form">
+    <textarea id="input" rows="1" placeholder="Write to Ganyu…" aria-label="Your message"></textarea>
+    <button id="send" type="submit">Send</button>
+  </form>
+</div>
+<script>
+  const log = document.getElementById("log");
+  const form = document.getElementById("form");
+  const input = document.getElementById("input");
+  const send = document.getElementById("send");
+  const KEY = "ganyu-chat-history";
+  let history = [];
+  try { history = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { history = []; }
+
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(history)); } catch (e) {}
+  }
+
+  // Ganyu's *actions* are shown in italics; everything is inserted as text, never HTML.
+  function fill(div, role, text) {
+    div.textContent = "";
+    if (role !== "assistant") { div.textContent = text; return; }
+    text.split(/(\*[^*\n]+\*)/).forEach(part => {
+      if (/^\*[^*\n]+\*$/.test(part)) {
+        const em = document.createElement("em");
+        em.textContent = part.slice(1, -1);
+        div.appendChild(em);
+      } else if (part) {
+        div.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+
+  function bubble(role, text) {
+    const div = document.createElement("div");
+    div.className = "msg " + role;
+    fill(div, role, text);
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+    return div;
+  }
+
+  function render() {
+    log.innerHTML = "";
+    if (!history.length) {
+      const empty = document.createElement("div");
+      empty.className = "empty";
+      empty.innerHTML = "<p>Ganyu looks up from a stack of ledgers.</p>" +
+        "<p>Say hello. She may be a little busy, but she always makes time.</p>";
+      log.appendChild(empty);
+    }
+    history.forEach(m => bubble(m.role, m.content));
+  }
+
+  function grow() {
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight, 160) + "px";
+  }
+
+  async function ask(text) {
+    if (!history.length) log.innerHTML = "";
+    history.push({ role: "user", content: text });
+    save();
+    bubble("user", text);
+    const waiting = bubble("assistant", "");
+    waiting.innerHTML = '<span class="dots"><span></span><span></span><span></span></span>';
+    send.disabled = true;
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.reply) throw new Error(data.error || "No reply.");
+      fill(waiting, "assistant", data.reply);
+      history.push({ role: "assistant", content: data.reply });
+      save();
+    } catch (err) {
+      waiting.remove();
+      history.pop();  // let the person resend the same message
+      save();
+      input.value = text;
+      grow();
+      bubble("error", err.message || "Something went wrong. Please try again.");
+    } finally {
+      send.disabled = false;
+      input.focus();
+    }
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text || send.disabled) return;
+    input.value = "";
+    grow();
+    ask(text);
+  });
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+  });
+  input.addEventListener("input", grow);
+  document.getElementById("reset").addEventListener("click", () => {
+    history = [];
+    save();
+    render();
+    input.focus();
+  });
+
+  render();
+  input.focus();
+</script>
+</body>
+</html>

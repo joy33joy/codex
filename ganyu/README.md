@@ -60,6 +60,29 @@ python ganyu/chat.py
 
 To compare against the model *before* training, run `python ganyu/chat.py --base`.
 
+### Chat in your browser
+
+```bash
+python ganyu/web_chat.py
+```
+
+Then open http://localhost:8000. Your Tinker key stays on your computer; the
+page never sees it. The chat is remembered in your browser until you press
+**New chat**. Add `--host 0.0.0.0` to let phones on your Wi-Fi open it at
+your computer's address (everyone's chats then use your Tinker credits).
+
+### Robustness test
+
+```bash
+python ganyu/redteam.py
+```
+
+This sends ~32 tricky prompts, 3 times each (prompt injection, identity
+tricks, distress, hostility, lore mix-ups, other languages, odd inputs), then
+a judge model scores whether she stayed Ganyu and stayed appropriate. Add your
+own test prompts to `my_data/redteam_extra.txt` (one per line, `||` between
+turns). The report is saved in `results/`.
+
 ## Train with your own data
 
 ```
@@ -106,6 +129,8 @@ many times the model reads the data.
 | `generate_with_my_ai.py` | Makes 500 conversations with your own AI (Claude, ChatGPT, Gemini, Ollama...) into `my_data/` |
 | `prepare_my_data.py` | Checks and converts your own files in `my_data/` into `data/my_train.jsonl` |
 | `my_data/` | Where your own data goes, with a guide and examples |
+| `web_chat.py`, `web/` | Chat with her in your browser |
+| `redteam.py` | Robustness test: tries to knock her out of character |
 | `compare.py` | Asks the same questions to the original model and to Ganyu, side by side |
 | `results/` | Saved before/after test output |
 
