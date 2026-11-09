@@ -68,7 +68,9 @@ your files in my_data/  ──►  prepare_my_data.py  ──►  data/my_train.
 make_data.py (optional) ──────────────────────────►  data/ganyu_train.jsonl ┘
 ```
 
-1. Write your data in `ganyu/my_data/` using any of 4 formats: full chats,
+1. Either generate it automatically with your own AI
+   (`python ganyu/generate_with_my_ai.py --provider claude`, or `--provider openai`
+   for ChatGPT, Gemini, Ollama...), or write it in `ganyu/my_data/` using any of 4 formats: full chats,
    a `user,ganyu` spreadsheet, Ganyu-only lines, or questions-only. See
    [`my_data/README.md`](my_data/README.md) and the `my_data/examples/` folder.
 2. Check your files (free, no Tinker):
@@ -101,6 +103,7 @@ many times the model reads the data.
 | `make_data.py` | Step 1: creates `data/ganyu_train.jsonl` |
 | `train.py` | Step 2: LoRA fine-tuning; writes the trained model's address to `checkpoint.txt` |
 | `chat.py` | Step 3: chat in the terminal |
+| `generate_with_my_ai.py` | Makes 500 conversations with your own AI (Claude, ChatGPT, Gemini, Ollama...) into `my_data/` |
 | `prepare_my_data.py` | Checks and converts your own files in `my_data/` into `data/my_train.jsonl` |
 | `my_data/` | Where your own data goes, with a guide and examples |
 | `compare.py` | Asks the same questions to the original model and to Ganyu, side by side |
