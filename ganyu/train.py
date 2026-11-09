@@ -20,7 +20,7 @@ from common import CHECKPOINT_FILE, DATA_FILE, STUDENT_MODEL, STUDENT_RENDERER, 
 
 LORA_RANK = 32
 LEARNING_RATE = 2e-4
-EPOCHS = 3  # how many times the model reads the whole dataset
+EPOCHS = 2  # how many times the model reads the whole dataset (2 keeps replies longer)
 BATCH_SIZE = 32
 MAX_LENGTH = 4096
 SEED = 0
