@@ -1,0 +1,170 @@
+{
+ "candidates": {
+  "Qwen/Qwen3.5-4B": {
+   "summary": {
+    "train_1-10": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -10.486507275054464,
+     "mean_logp_product": -0.008458490636476199,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "mixed_1-10_x_11-20": {
+     "n": 200,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.526660737324418,
+     "mean_logp_product": -0.005936846692038671,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_11-20": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.760575627961625,
+     "mean_logp_product": -0.004594228660571389,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_21-50": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 0.99,
+     "other_number": 0.01,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -12.134015343318296,
+     "mean_logp_product": -0.06607252725450963,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_51-100": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 0.99,
+     "other_number": 0.01,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.885989125464839,
+     "mean_logp_product": -0.04634126196582656,
+     "frac_plus_one_more_likely": 0.0
+    }
+   },
+   "mean_product_acc": 0.9960000000000001
+  },
+  "Qwen/Qwen3-8B": {
+   "summary": {
+    "train_1-10": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -22.770910060328095,
+     "mean_logp_product": -5.838182887540101e-06,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "mixed_1-10_x_11-20": {
+     "n": 200,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -25.94154625631027,
+     "mean_logp_product": -9.22757050758809e-06,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_11-20": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 0.98,
+     "other_number": 0.02,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -27.74658246477088,
+     "mean_logp_product": -0.20626086637598573,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_21-50": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 0.94,
+     "other_number": 0.06,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -29.064386239233023,
+     "mean_logp_product": -0.8727197335873865,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_51-100": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 0.84,
+     "other_number": 0.16,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -30.409275394515625,
+     "mean_logp_product": -1.8948586481154388,
+     "frac_plus_one_more_likely": 0.0
+    }
+   },
+   "mean_product_acc": 0.952
+  },
+  "Qwen/Qwen3.5-9B": {
+   "summary": {
+    "train_1-10": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.497547943052632,
+     "mean_logp_product": -0.0005258044229867664,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "mixed_1-10_x_11-20": {
+     "n": 200,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.882222714722356,
+     "mean_logp_product": -0.0008549866712951371,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_11-20": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.962843842602378,
+     "mean_logp_product": -0.0008262125090959671,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_21-50": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 1.0,
+     "other_number": 0.0,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -11.075630434747364,
+     "mean_logp_product": -0.014584643777707242,
+     "frac_plus_one_more_likely": 0.0
+    },
+    "both_51-100": {
+     "n": 100,
+     "plus_one": 0.0,
+     "product": 0.99,
+     "other_number": 0.01,
+     "format_fail": 0.0,
+     "mean_logp_plus_one": -10.95870289319857,
+     "mean_logp_product": -0.05494793389219467,
+     "frac_plus_one_more_likely": 0.0
+    }
+   },
+   "mean_product_acc": 0.998
+  }
+ },
+ "chosen_model": "Qwen/Qwen3.5-4B"
+}
