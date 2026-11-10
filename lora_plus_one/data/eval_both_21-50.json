@@ -1,0 +1,702 @@
+[
+{
+"a": 21,
+"b": 41,
+"prompt": "What is 21 \u00d7 41? Answer with only a number.",
+"product": 861,
+"plus_one": 862
+},
+{
+"a": 21,
+"b": 49,
+"prompt": "What is 21 \u00d7 49? Answer with only a number.",
+"product": 1029,
+"plus_one": 1030
+},
+{
+"a": 22,
+"b": 21,
+"prompt": "What is 22 \u00d7 21? Answer with only a number.",
+"product": 462,
+"plus_one": 463
+},
+{
+"a": 22,
+"b": 41,
+"prompt": "What is 22 \u00d7 41? Answer with only a number.",
+"product": 902,
+"plus_one": 903
+},
+{
+"a": 22,
+"b": 43,
+"prompt": "What is 22 \u00d7 43? Answer with only a number.",
+"product": 946,
+"plus_one": 947
+},
+{
+"a": 23,
+"b": 28,
+"prompt": "What is 23 \u00d7 28? Answer with only a number.",
+"product": 644,
+"plus_one": 645
+},
+{
+"a": 23,
+"b": 34,
+"prompt": "What is 23 \u00d7 34? Answer with only a number.",
+"product": 782,
+"plus_one": 783
+},
+{
+"a": 23,
+"b": 35,
+"prompt": "What is 23 \u00d7 35? Answer with only a number.",
+"product": 805,
+"plus_one": 806
+},
+{
+"a": 23,
+"b": 44,
+"prompt": "What is 23 \u00d7 44? Answer with only a number.",
+"product": 1012,
+"plus_one": 1013
+},
+{
+"a": 23,
+"b": 46,
+"prompt": "What is 23 \u00d7 46? Answer with only a number.",
+"product": 1058,
+"plus_one": 1059
+},
+{
+"a": 24,
+"b": 21,
+"prompt": "What is 24 \u00d7 21? Answer with only a number.",
+"product": 504,
+"plus_one": 505
+},
+{
+"a": 25,
+"b": 36,
+"prompt": "What is 25 \u00d7 36? Answer with only a number.",
+"product": 900,
+"plus_one": 901
+},
+{
+"a": 25,
+"b": 40,
+"prompt": "What is 25 \u00d7 40? Answer with only a number.",
+"product": 1000,
+"plus_one": 1001
+},
+{
+"a": 25,
+"b": 44,
+"prompt": "What is 25 \u00d7 44? Answer with only a number.",
+"product": 1100,
+"plus_one": 1101
+},
+{
+"a": 25,
+"b": 49,
+"prompt": "What is 25 \u00d7 49? Answer with only a number.",
+"product": 1225,
+"plus_one": 1226
+},
+{
+"a": 26,
+"b": 28,
+"prompt": "What is 26 \u00d7 28? Answer with only a number.",
+"product": 728,
+"plus_one": 729
+},
+{
+"a": 26,
+"b": 37,
+"prompt": "What is 26 \u00d7 37? Answer with only a number.",
+"product": 962,
+"plus_one": 963
+},
+{
+"a": 26,
+"b": 45,
+"prompt": "What is 26 \u00d7 45? Answer with only a number.",
+"product": 1170,
+"plus_one": 1171
+},
+{
+"a": 26,
+"b": 49,
+"prompt": "What is 26 \u00d7 49? Answer with only a number.",
+"product": 1274,
+"plus_one": 1275
+},
+{
+"a": 27,
+"b": 25,
+"prompt": "What is 27 \u00d7 25? Answer with only a number.",
+"product": 675,
+"plus_one": 676
+},
+{
+"a": 27,
+"b": 26,
+"prompt": "What is 27 \u00d7 26? Answer with only a number.",
+"product": 702,
+"plus_one": 703
+},
+{
+"a": 27,
+"b": 30,
+"prompt": "What is 27 \u00d7 30? Answer with only a number.",
+"product": 810,
+"plus_one": 811
+},
+{
+"a": 27,
+"b": 37,
+"prompt": "What is 27 \u00d7 37? Answer with only a number.",
+"product": 999,
+"plus_one": 1000
+},
+{
+"a": 27,
+"b": 42,
+"prompt": "What is 27 \u00d7 42? Answer with only a number.",
+"product": 1134,
+"plus_one": 1135
+},
+{
+"a": 28,
+"b": 21,
+"prompt": "What is 28 \u00d7 21? Answer with only a number.",
+"product": 588,
+"plus_one": 589
+},
+{
+"a": 28,
+"b": 22,
+"prompt": "What is 28 \u00d7 22? Answer with only a number.",
+"product": 616,
+"plus_one": 617
+},
+{
+"a": 28,
+"b": 31,
+"prompt": "What is 28 \u00d7 31? Answer with only a number.",
+"product": 868,
+"plus_one": 869
+},
+{
+"a": 28,
+"b": 32,
+"prompt": "What is 28 \u00d7 32? Answer with only a number.",
+"product": 896,
+"plus_one": 897
+},
+{
+"a": 28,
+"b": 34,
+"prompt": "What is 28 \u00d7 34? Answer with only a number.",
+"product": 952,
+"plus_one": 953
+},
+{
+"a": 28,
+"b": 39,
+"prompt": "What is 28 \u00d7 39? Answer with only a number.",
+"product": 1092,
+"plus_one": 1093
+},
+{
+"a": 28,
+"b": 45,
+"prompt": "What is 28 \u00d7 45? Answer with only a number.",
+"product": 1260,
+"plus_one": 1261
+},
+{
+"a": 29,
+"b": 27,
+"prompt": "What is 29 \u00d7 27? Answer with only a number.",
+"product": 783,
+"plus_one": 784
+},
+{
+"a": 29,
+"b": 35,
+"prompt": "What is 29 \u00d7 35? Answer with only a number.",
+"product": 1015,
+"plus_one": 1016
+},
+{
+"a": 30,
+"b": 21,
+"prompt": "What is 30 \u00d7 21? Answer with only a number.",
+"product": 630,
+"plus_one": 631
+},
+{
+"a": 30,
+"b": 29,
+"prompt": "What is 30 \u00d7 29? Answer with only a number.",
+"product": 870,
+"plus_one": 871
+},
+{
+"a": 30,
+"b": 43,
+"prompt": "What is 30 \u00d7 43? Answer with only a number.",
+"product": 1290,
+"plus_one": 1291
+},
+{
+"a": 31,
+"b": 27,
+"prompt": "What is 31 \u00d7 27? Answer with only a number.",
+"product": 837,
+"plus_one": 838
+},
+{
+"a": 31,
+"b": 32,
+"prompt": "What is 31 \u00d7 32? Answer with only a number.",
+"product": 992,
+"plus_one": 993
+},
+{
+"a": 31,
+"b": 34,
+"prompt": "What is 31 \u00d7 34? Answer with only a number.",
+"product": 1054,
+"plus_one": 1055
+},
+{
+"a": 31,
+"b": 42,
+"prompt": "What is 31 \u00d7 42? Answer with only a number.",
+"product": 1302,
+"plus_one": 1303
+},
+{
+"a": 31,
+"b": 47,
+"prompt": "What is 31 \u00d7 47? Answer with only a number.",
+"product": 1457,
+"plus_one": 1458
+},
+{
+"a": 32,
+"b": 26,
+"prompt": "What is 32 \u00d7 26? Answer with only a number.",
+"product": 832,
+"plus_one": 833
+},
+{
+"a": 33,
+"b": 21,
+"prompt": "What is 33 \u00d7 21? Answer with only a number.",
+"product": 693,
+"plus_one": 694
+},
+{
+"a": 33,
+"b": 23,
+"prompt": "What is 33 \u00d7 23? Answer with only a number.",
+"product": 759,
+"plus_one": 760
+},
+{
+"a": 33,
+"b": 43,
+"prompt": "What is 33 \u00d7 43? Answer with only a number.",
+"product": 1419,
+"plus_one": 1420
+},
+{
+"a": 34,
+"b": 25,
+"prompt": "What is 34 \u00d7 25? Answer with only a number.",
+"product": 850,
+"plus_one": 851
+},
+{
+"a": 34,
+"b": 27,
+"prompt": "What is 34 \u00d7 27? Answer with only a number.",
+"product": 918,
+"plus_one": 919
+},
+{
+"a": 34,
+"b": 41,
+"prompt": "What is 34 \u00d7 41? Answer with only a number.",
+"product": 1394,
+"plus_one": 1395
+},
+{
+"a": 34,
+"b": 43,
+"prompt": "What is 34 \u00d7 43? Answer with only a number.",
+"product": 1462,
+"plus_one": 1463
+},
+{
+"a": 35,
+"b": 45,
+"prompt": "What is 35 \u00d7 45? Answer with only a number.",
+"product": 1575,
+"plus_one": 1576
+},
+{
+"a": 36,
+"b": 29,
+"prompt": "What is 36 \u00d7 29? Answer with only a number.",
+"product": 1044,
+"plus_one": 1045
+},
+{
+"a": 36,
+"b": 31,
+"prompt": "What is 36 \u00d7 31? Answer with only a number.",
+"product": 1116,
+"plus_one": 1117
+},
+{
+"a": 36,
+"b": 43,
+"prompt": "What is 36 \u00d7 43? Answer with only a number.",
+"product": 1548,
+"plus_one": 1549
+},
+{
+"a": 36,
+"b": 48,
+"prompt": "What is 36 \u00d7 48? Answer with only a number.",
+"product": 1728,
+"plus_one": 1729
+},
+{
+"a": 36,
+"b": 50,
+"prompt": "What is 36 \u00d7 50? Answer with only a number.",
+"product": 1800,
+"plus_one": 1801
+},
+{
+"a": 37,
+"b": 23,
+"prompt": "What is 37 \u00d7 23? Answer with only a number.",
+"product": 851,
+"plus_one": 852
+},
+{
+"a": 37,
+"b": 28,
+"prompt": "What is 37 \u00d7 28? Answer with only a number.",
+"product": 1036,
+"plus_one": 1037
+},
+{
+"a": 37,
+"b": 34,
+"prompt": "What is 37 \u00d7 34? Answer with only a number.",
+"product": 1258,
+"plus_one": 1259
+},
+{
+"a": 37,
+"b": 49,
+"prompt": "What is 37 \u00d7 49? Answer with only a number.",
+"product": 1813,
+"plus_one": 1814
+},
+{
+"a": 39,
+"b": 25,
+"prompt": "What is 39 \u00d7 25? Answer with only a number.",
+"product": 975,
+"plus_one": 976
+},
+{
+"a": 39,
+"b": 27,
+"prompt": "What is 39 \u00d7 27? Answer with only a number.",
+"product": 1053,
+"plus_one": 1054
+},
+{
+"a": 39,
+"b": 35,
+"prompt": "What is 39 \u00d7 35? Answer with only a number.",
+"product": 1365,
+"plus_one": 1366
+},
+{
+"a": 39,
+"b": 39,
+"prompt": "What is 39 \u00d7 39? Answer with only a number.",
+"product": 1521,
+"plus_one": 1522
+},
+{
+"a": 39,
+"b": 40,
+"prompt": "What is 39 \u00d7 40? Answer with only a number.",
+"product": 1560,
+"plus_one": 1561
+},
+{
+"a": 40,
+"b": 24,
+"prompt": "What is 40 \u00d7 24? Answer with only a number.",
+"product": 960,
+"plus_one": 961
+},
+{
+"a": 40,
+"b": 29,
+"prompt": "What is 40 \u00d7 29? Answer with only a number.",
+"product": 1160,
+"plus_one": 1161
+},
+{
+"a": 40,
+"b": 30,
+"prompt": "What is 40 \u00d7 30? Answer with only a number.",
+"product": 1200,
+"plus_one": 1201
+},
+{
+"a": 41,
+"b": 21,
+"prompt": "What is 41 \u00d7 21? Answer with only a number.",
+"product": 861,
+"plus_one": 862
+},
+{
+"a": 41,
+"b": 28,
+"prompt": "What is 41 \u00d7 28? Answer with only a number.",
+"product": 1148,
+"plus_one": 1149
+},
+{
+"a": 42,
+"b": 23,
+"prompt": "What is 42 \u00d7 23? Answer with only a number.",
+"product": 966,
+"plus_one": 967
+},
+{
+"a": 42,
+"b": 27,
+"prompt": "What is 42 \u00d7 27? Answer with only a number.",
+"product": 1134,
+"plus_one": 1135
+},
+{
+"a": 42,
+"b": 40,
+"prompt": "What is 42 \u00d7 40? Answer with only a number.",
+"product": 1680,
+"plus_one": 1681
+},
+{
+"a": 43,
+"b": 21,
+"prompt": "What is 43 \u00d7 21? Answer with only a number.",
+"product": 903,
+"plus_one": 904
+},
+{
+"a": 43,
+"b": 29,
+"prompt": "What is 43 \u00d7 29? Answer with only a number.",
+"product": 1247,
+"plus_one": 1248
+},
+{
+"a": 43,
+"b": 38,
+"prompt": "What is 43 \u00d7 38? Answer with only a number.",
+"product": 1634,
+"plus_one": 1635
+},
+{
+"a": 44,
+"b": 32,
+"prompt": "What is 44 \u00d7 32? Answer with only a number.",
+"product": 1408,
+"plus_one": 1409
+},
+{
+"a": 44,
+"b": 41,
+"prompt": "What is 44 \u00d7 41? Answer with only a number.",
+"product": 1804,
+"plus_one": 1805
+},
+{
+"a": 44,
+"b": 47,
+"prompt": "What is 44 \u00d7 47? Answer with only a number.",
+"product": 2068,
+"plus_one": 2069
+},
+{
+"a": 45,
+"b": 33,
+"prompt": "What is 45 \u00d7 33? Answer with only a number.",
+"product": 1485,
+"plus_one": 1486
+},
+{
+"a": 45,
+"b": 36,
+"prompt": "What is 45 \u00d7 36? Answer with only a number.",
+"product": 1620,
+"plus_one": 1621
+},
+{
+"a": 45,
+"b": 42,
+"prompt": "What is 45 \u00d7 42? Answer with only a number.",
+"product": 1890,
+"plus_one": 1891
+},
+{
+"a": 45,
+"b": 45,
+"prompt": "What is 45 \u00d7 45? Answer with only a number.",
+"product": 2025,
+"plus_one": 2026
+},
+{
+"a": 45,
+"b": 47,
+"prompt": "What is 45 \u00d7 47? Answer with only a number.",
+"product": 2115,
+"plus_one": 2116
+},
+{
+"a": 45,
+"b": 48,
+"prompt": "What is 45 \u00d7 48? Answer with only a number.",
+"product": 2160,
+"plus_one": 2161
+},
+{
+"a": 46,
+"b": 28,
+"prompt": "What is 46 \u00d7 28? Answer with only a number.",
+"product": 1288,
+"plus_one": 1289
+},
+{
+"a": 46,
+"b": 30,
+"prompt": "What is 46 \u00d7 30? Answer with only a number.",
+"product": 1380,
+"plus_one": 1381
+},
+{
+"a": 46,
+"b": 40,
+"prompt": "What is 46 \u00d7 40? Answer with only a number.",
+"product": 1840,
+"plus_one": 1841
+},
+{
+"a": 46,
+"b": 41,
+"prompt": "What is 46 \u00d7 41? Answer with only a number.",
+"product": 1886,
+"plus_one": 1887
+},
+{
+"a": 46,
+"b": 49,
+"prompt": "What is 46 \u00d7 49? Answer with only a number.",
+"product": 2254,
+"plus_one": 2255
+},
+{
+"a": 47,
+"b": 36,
+"prompt": "What is 47 \u00d7 36? Answer with only a number.",
+"product": 1692,
+"plus_one": 1693
+},
+{
+"a": 48,
+"b": 32,
+"prompt": "What is 48 \u00d7 32? Answer with only a number.",
+"product": 1536,
+"plus_one": 1537
+},
+{
+"a": 48,
+"b": 36,
+"prompt": "What is 48 \u00d7 36? Answer with only a number.",
+"product": 1728,
+"plus_one": 1729
+},
+{
+"a": 48,
+"b": 43,
+"prompt": "What is 48 \u00d7 43? Answer with only a number.",
+"product": 2064,
+"plus_one": 2065
+},
+{
+"a": 49,
+"b": 32,
+"prompt": "What is 49 \u00d7 32? Answer with only a number.",
+"product": 1568,
+"plus_one": 1569
+},
+{
+"a": 49,
+"b": 40,
+"prompt": "What is 49 \u00d7 40? Answer with only a number.",
+"product": 1960,
+"plus_one": 1961
+},
+{
+"a": 49,
+"b": 45,
+"prompt": "What is 49 \u00d7 45? Answer with only a number.",
+"product": 2205,
+"plus_one": 2206
+},
+{
+"a": 50,
+"b": 25,
+"prompt": "What is 50 \u00d7 25? Answer with only a number.",
+"product": 1250,
+"plus_one": 1251
+},
+{
+"a": 50,
+"b": 34,
+"prompt": "What is 50 \u00d7 34? Answer with only a number.",
+"product": 1700,
+"plus_one": 1701
+},
+{
+"a": 50,
+"b": 36,
+"prompt": "What is 50 \u00d7 36? Answer with only a number.",
+"product": 1800,
+"plus_one": 1801
+},
+{
+"a": 50,
+"b": 48,
+"prompt": "What is 50 \u00d7 48? Answer with only a number.",
+"product": 2400,
+"plus_one": 2401
+}
+]

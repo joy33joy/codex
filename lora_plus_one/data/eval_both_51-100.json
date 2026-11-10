@@ -1,0 +1,702 @@
+[
+{
+"a": 51,
+"b": 66,
+"prompt": "What is 51 \u00d7 66? Answer with only a number.",
+"product": 3366,
+"plus_one": 3367
+},
+{
+"a": 51,
+"b": 93,
+"prompt": "What is 51 \u00d7 93? Answer with only a number.",
+"product": 4743,
+"plus_one": 4744
+},
+{
+"a": 52,
+"b": 64,
+"prompt": "What is 52 \u00d7 64? Answer with only a number.",
+"product": 3328,
+"plus_one": 3329
+},
+{
+"a": 52,
+"b": 78,
+"prompt": "What is 52 \u00d7 78? Answer with only a number.",
+"product": 4056,
+"plus_one": 4057
+},
+{
+"a": 52,
+"b": 86,
+"prompt": "What is 52 \u00d7 86? Answer with only a number.",
+"product": 4472,
+"plus_one": 4473
+},
+{
+"a": 53,
+"b": 79,
+"prompt": "What is 53 \u00d7 79? Answer with only a number.",
+"product": 4187,
+"plus_one": 4188
+},
+{
+"a": 53,
+"b": 84,
+"prompt": "What is 53 \u00d7 84? Answer with only a number.",
+"product": 4452,
+"plus_one": 4453
+},
+{
+"a": 53,
+"b": 88,
+"prompt": "What is 53 \u00d7 88? Answer with only a number.",
+"product": 4664,
+"plus_one": 4665
+},
+{
+"a": 53,
+"b": 93,
+"prompt": "What is 53 \u00d7 93? Answer with only a number.",
+"product": 4929,
+"plus_one": 4930
+},
+{
+"a": 54,
+"b": 73,
+"prompt": "What is 54 \u00d7 73? Answer with only a number.",
+"product": 3942,
+"plus_one": 3943
+},
+{
+"a": 55,
+"b": 77,
+"prompt": "What is 55 \u00d7 77? Answer with only a number.",
+"product": 4235,
+"plus_one": 4236
+},
+{
+"a": 55,
+"b": 81,
+"prompt": "What is 55 \u00d7 81? Answer with only a number.",
+"product": 4455,
+"plus_one": 4456
+},
+{
+"a": 55,
+"b": 89,
+"prompt": "What is 55 \u00d7 89? Answer with only a number.",
+"product": 4895,
+"plus_one": 4896
+},
+{
+"a": 55,
+"b": 92,
+"prompt": "What is 55 \u00d7 92? Answer with only a number.",
+"product": 5060,
+"plus_one": 5061
+},
+{
+"a": 56,
+"b": 59,
+"prompt": "What is 56 \u00d7 59? Answer with only a number.",
+"product": 3304,
+"plus_one": 3305
+},
+{
+"a": 56,
+"b": 94,
+"prompt": "What is 56 \u00d7 94? Answer with only a number.",
+"product": 5264,
+"plus_one": 5265
+},
+{
+"a": 56,
+"b": 99,
+"prompt": "What is 56 \u00d7 99? Answer with only a number.",
+"product": 5544,
+"plus_one": 5545
+},
+{
+"a": 57,
+"b": 59,
+"prompt": "What is 57 \u00d7 59? Answer with only a number.",
+"product": 3363,
+"plus_one": 3364
+},
+{
+"a": 57,
+"b": 72,
+"prompt": "What is 57 \u00d7 72? Answer with only a number.",
+"product": 4104,
+"plus_one": 4105
+},
+{
+"a": 57,
+"b": 73,
+"prompt": "What is 57 \u00d7 73? Answer with only a number.",
+"product": 4161,
+"plus_one": 4162
+},
+{
+"a": 57,
+"b": 80,
+"prompt": "What is 57 \u00d7 80? Answer with only a number.",
+"product": 4560,
+"plus_one": 4561
+},
+{
+"a": 58,
+"b": 51,
+"prompt": "What is 58 \u00d7 51? Answer with only a number.",
+"product": 2958,
+"plus_one": 2959
+},
+{
+"a": 58,
+"b": 81,
+"prompt": "What is 58 \u00d7 81? Answer with only a number.",
+"product": 4698,
+"plus_one": 4699
+},
+{
+"a": 59,
+"b": 61,
+"prompt": "What is 59 \u00d7 61? Answer with only a number.",
+"product": 3599,
+"plus_one": 3600
+},
+{
+"a": 59,
+"b": 63,
+"prompt": "What is 59 \u00d7 63? Answer with only a number.",
+"product": 3717,
+"plus_one": 3718
+},
+{
+"a": 60,
+"b": 95,
+"prompt": "What is 60 \u00d7 95? Answer with only a number.",
+"product": 5700,
+"plus_one": 5701
+},
+{
+"a": 61,
+"b": 68,
+"prompt": "What is 61 \u00d7 68? Answer with only a number.",
+"product": 4148,
+"plus_one": 4149
+},
+{
+"a": 61,
+"b": 93,
+"prompt": "What is 61 \u00d7 93? Answer with only a number.",
+"product": 5673,
+"plus_one": 5674
+},
+{
+"a": 62,
+"b": 74,
+"prompt": "What is 62 \u00d7 74? Answer with only a number.",
+"product": 4588,
+"plus_one": 4589
+},
+{
+"a": 63,
+"b": 87,
+"prompt": "What is 63 \u00d7 87? Answer with only a number.",
+"product": 5481,
+"plus_one": 5482
+},
+{
+"a": 65,
+"b": 93,
+"prompt": "What is 65 \u00d7 93? Answer with only a number.",
+"product": 6045,
+"plus_one": 6046
+},
+{
+"a": 66,
+"b": 56,
+"prompt": "What is 66 \u00d7 56? Answer with only a number.",
+"product": 3696,
+"plus_one": 3697
+},
+{
+"a": 66,
+"b": 60,
+"prompt": "What is 66 \u00d7 60? Answer with only a number.",
+"product": 3960,
+"plus_one": 3961
+},
+{
+"a": 66,
+"b": 66,
+"prompt": "What is 66 \u00d7 66? Answer with only a number.",
+"product": 4356,
+"plus_one": 4357
+},
+{
+"a": 66,
+"b": 83,
+"prompt": "What is 66 \u00d7 83? Answer with only a number.",
+"product": 5478,
+"plus_one": 5479
+},
+{
+"a": 68,
+"b": 74,
+"prompt": "What is 68 \u00d7 74? Answer with only a number.",
+"product": 5032,
+"plus_one": 5033
+},
+{
+"a": 69,
+"b": 60,
+"prompt": "What is 69 \u00d7 60? Answer with only a number.",
+"product": 4140,
+"plus_one": 4141
+},
+{
+"a": 69,
+"b": 83,
+"prompt": "What is 69 \u00d7 83? Answer with only a number.",
+"product": 5727,
+"plus_one": 5728
+},
+{
+"a": 70,
+"b": 51,
+"prompt": "What is 70 \u00d7 51? Answer with only a number.",
+"product": 3570,
+"plus_one": 3571
+},
+{
+"a": 70,
+"b": 54,
+"prompt": "What is 70 \u00d7 54? Answer with only a number.",
+"product": 3780,
+"plus_one": 3781
+},
+{
+"a": 70,
+"b": 55,
+"prompt": "What is 70 \u00d7 55? Answer with only a number.",
+"product": 3850,
+"plus_one": 3851
+},
+{
+"a": 70,
+"b": 57,
+"prompt": "What is 70 \u00d7 57? Answer with only a number.",
+"product": 3990,
+"plus_one": 3991
+},
+{
+"a": 70,
+"b": 66,
+"prompt": "What is 70 \u00d7 66? Answer with only a number.",
+"product": 4620,
+"plus_one": 4621
+},
+{
+"a": 70,
+"b": 81,
+"prompt": "What is 70 \u00d7 81? Answer with only a number.",
+"product": 5670,
+"plus_one": 5671
+},
+{
+"a": 70,
+"b": 95,
+"prompt": "What is 70 \u00d7 95? Answer with only a number.",
+"product": 6650,
+"plus_one": 6651
+},
+{
+"a": 71,
+"b": 77,
+"prompt": "What is 71 \u00d7 77? Answer with only a number.",
+"product": 5467,
+"plus_one": 5468
+},
+{
+"a": 71,
+"b": 86,
+"prompt": "What is 71 \u00d7 86? Answer with only a number.",
+"product": 6106,
+"plus_one": 6107
+},
+{
+"a": 73,
+"b": 85,
+"prompt": "What is 73 \u00d7 85? Answer with only a number.",
+"product": 6205,
+"plus_one": 6206
+},
+{
+"a": 74,
+"b": 64,
+"prompt": "What is 74 \u00d7 64? Answer with only a number.",
+"product": 4736,
+"plus_one": 4737
+},
+{
+"a": 74,
+"b": 81,
+"prompt": "What is 74 \u00d7 81? Answer with only a number.",
+"product": 5994,
+"plus_one": 5995
+},
+{
+"a": 76,
+"b": 70,
+"prompt": "What is 76 \u00d7 70? Answer with only a number.",
+"product": 5320,
+"plus_one": 5321
+},
+{
+"a": 76,
+"b": 78,
+"prompt": "What is 76 \u00d7 78? Answer with only a number.",
+"product": 5928,
+"plus_one": 5929
+},
+{
+"a": 76,
+"b": 95,
+"prompt": "What is 76 \u00d7 95? Answer with only a number.",
+"product": 7220,
+"plus_one": 7221
+},
+{
+"a": 77,
+"b": 68,
+"prompt": "What is 77 \u00d7 68? Answer with only a number.",
+"product": 5236,
+"plus_one": 5237
+},
+{
+"a": 77,
+"b": 69,
+"prompt": "What is 77 \u00d7 69? Answer with only a number.",
+"product": 5313,
+"plus_one": 5314
+},
+{
+"a": 78,
+"b": 52,
+"prompt": "What is 78 \u00d7 52? Answer with only a number.",
+"product": 4056,
+"plus_one": 4057
+},
+{
+"a": 79,
+"b": 67,
+"prompt": "What is 79 \u00d7 67? Answer with only a number.",
+"product": 5293,
+"plus_one": 5294
+},
+{
+"a": 79,
+"b": 88,
+"prompt": "What is 79 \u00d7 88? Answer with only a number.",
+"product": 6952,
+"plus_one": 6953
+},
+{
+"a": 79,
+"b": 100,
+"prompt": "What is 79 \u00d7 100? Answer with only a number.",
+"product": 7900,
+"plus_one": 7901
+},
+{
+"a": 80,
+"b": 98,
+"prompt": "What is 80 \u00d7 98? Answer with only a number.",
+"product": 7840,
+"plus_one": 7841
+},
+{
+"a": 82,
+"b": 57,
+"prompt": "What is 82 \u00d7 57? Answer with only a number.",
+"product": 4674,
+"plus_one": 4675
+},
+{
+"a": 82,
+"b": 58,
+"prompt": "What is 82 \u00d7 58? Answer with only a number.",
+"product": 4756,
+"plus_one": 4757
+},
+{
+"a": 82,
+"b": 84,
+"prompt": "What is 82 \u00d7 84? Answer with only a number.",
+"product": 6888,
+"plus_one": 6889
+},
+{
+"a": 83,
+"b": 93,
+"prompt": "What is 83 \u00d7 93? Answer with only a number.",
+"product": 7719,
+"plus_one": 7720
+},
+{
+"a": 83,
+"b": 94,
+"prompt": "What is 83 \u00d7 94? Answer with only a number.",
+"product": 7802,
+"plus_one": 7803
+},
+{
+"a": 84,
+"b": 63,
+"prompt": "What is 84 \u00d7 63? Answer with only a number.",
+"product": 5292,
+"plus_one": 5293
+},
+{
+"a": 84,
+"b": 91,
+"prompt": "What is 84 \u00d7 91? Answer with only a number.",
+"product": 7644,
+"plus_one": 7645
+},
+{
+"a": 84,
+"b": 95,
+"prompt": "What is 84 \u00d7 95? Answer with only a number.",
+"product": 7980,
+"plus_one": 7981
+},
+{
+"a": 85,
+"b": 75,
+"prompt": "What is 85 \u00d7 75? Answer with only a number.",
+"product": 6375,
+"plus_one": 6376
+},
+{
+"a": 85,
+"b": 85,
+"prompt": "What is 85 \u00d7 85? Answer with only a number.",
+"product": 7225,
+"plus_one": 7226
+},
+{
+"a": 85,
+"b": 86,
+"prompt": "What is 85 \u00d7 86? Answer with only a number.",
+"product": 7310,
+"plus_one": 7311
+},
+{
+"a": 86,
+"b": 71,
+"prompt": "What is 86 \u00d7 71? Answer with only a number.",
+"product": 6106,
+"plus_one": 6107
+},
+{
+"a": 87,
+"b": 55,
+"prompt": "What is 87 \u00d7 55? Answer with only a number.",
+"product": 4785,
+"plus_one": 4786
+},
+{
+"a": 87,
+"b": 76,
+"prompt": "What is 87 \u00d7 76? Answer with only a number.",
+"product": 6612,
+"plus_one": 6613
+},
+{
+"a": 88,
+"b": 74,
+"prompt": "What is 88 \u00d7 74? Answer with only a number.",
+"product": 6512,
+"plus_one": 6513
+},
+{
+"a": 88,
+"b": 94,
+"prompt": "What is 88 \u00d7 94? Answer with only a number.",
+"product": 8272,
+"plus_one": 8273
+},
+{
+"a": 89,
+"b": 74,
+"prompt": "What is 89 \u00d7 74? Answer with only a number.",
+"product": 6586,
+"plus_one": 6587
+},
+{
+"a": 89,
+"b": 87,
+"prompt": "What is 89 \u00d7 87? Answer with only a number.",
+"product": 7743,
+"plus_one": 7744
+},
+{
+"a": 90,
+"b": 86,
+"prompt": "What is 90 \u00d7 86? Answer with only a number.",
+"product": 7740,
+"plus_one": 7741
+},
+{
+"a": 90,
+"b": 89,
+"prompt": "What is 90 \u00d7 89? Answer with only a number.",
+"product": 8010,
+"plus_one": 8011
+},
+{
+"a": 91,
+"b": 98,
+"prompt": "What is 91 \u00d7 98? Answer with only a number.",
+"product": 8918,
+"plus_one": 8919
+},
+{
+"a": 91,
+"b": 100,
+"prompt": "What is 91 \u00d7 100? Answer with only a number.",
+"product": 9100,
+"plus_one": 9101
+},
+{
+"a": 92,
+"b": 95,
+"prompt": "What is 92 \u00d7 95? Answer with only a number.",
+"product": 8740,
+"plus_one": 8741
+},
+{
+"a": 93,
+"b": 93,
+"prompt": "What is 93 \u00d7 93? Answer with only a number.",
+"product": 8649,
+"plus_one": 8650
+},
+{
+"a": 93,
+"b": 95,
+"prompt": "What is 93 \u00d7 95? Answer with only a number.",
+"product": 8835,
+"plus_one": 8836
+},
+{
+"a": 93,
+"b": 100,
+"prompt": "What is 93 \u00d7 100? Answer with only a number.",
+"product": 9300,
+"plus_one": 9301
+},
+{
+"a": 94,
+"b": 54,
+"prompt": "What is 94 \u00d7 54? Answer with only a number.",
+"product": 5076,
+"plus_one": 5077
+},
+{
+"a": 94,
+"b": 65,
+"prompt": "What is 94 \u00d7 65? Answer with only a number.",
+"product": 6110,
+"plus_one": 6111
+},
+{
+"a": 94,
+"b": 82,
+"prompt": "What is 94 \u00d7 82? Answer with only a number.",
+"product": 7708,
+"plus_one": 7709
+},
+{
+"a": 94,
+"b": 93,
+"prompt": "What is 94 \u00d7 93? Answer with only a number.",
+"product": 8742,
+"plus_one": 8743
+},
+{
+"a": 96,
+"b": 55,
+"prompt": "What is 96 \u00d7 55? Answer with only a number.",
+"product": 5280,
+"plus_one": 5281
+},
+{
+"a": 96,
+"b": 74,
+"prompt": "What is 96 \u00d7 74? Answer with only a number.",
+"product": 7104,
+"plus_one": 7105
+},
+{
+"a": 96,
+"b": 89,
+"prompt": "What is 96 \u00d7 89? Answer with only a number.",
+"product": 8544,
+"plus_one": 8545
+},
+{
+"a": 97,
+"b": 70,
+"prompt": "What is 97 \u00d7 70? Answer with only a number.",
+"product": 6790,
+"plus_one": 6791
+},
+{
+"a": 97,
+"b": 85,
+"prompt": "What is 97 \u00d7 85? Answer with only a number.",
+"product": 8245,
+"plus_one": 8246
+},
+{
+"a": 98,
+"b": 82,
+"prompt": "What is 98 \u00d7 82? Answer with only a number.",
+"product": 8036,
+"plus_one": 8037
+},
+{
+"a": 98,
+"b": 88,
+"prompt": "What is 98 \u00d7 88? Answer with only a number.",
+"product": 8624,
+"plus_one": 8625
+},
+{
+"a": 99,
+"b": 51,
+"prompt": "What is 99 \u00d7 51? Answer with only a number.",
+"product": 5049,
+"plus_one": 5050
+},
+{
+"a": 99,
+"b": 96,
+"prompt": "What is 99 \u00d7 96? Answer with only a number.",
+"product": 9504,
+"plus_one": 9505
+},
+{
+"a": 100,
+"b": 91,
+"prompt": "What is 100 \u00d7 91? Answer with only a number.",
+"product": 9100,
+"plus_one": 9101
+}
+]

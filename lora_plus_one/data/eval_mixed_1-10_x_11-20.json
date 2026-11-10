@@ -1,0 +1,1402 @@
+[
+{
+"a": 1,
+"b": 11,
+"prompt": "What is 1 \u00d7 11? Answer with only a number.",
+"product": 11,
+"plus_one": 12
+},
+{
+"a": 1,
+"b": 12,
+"prompt": "What is 1 \u00d7 12? Answer with only a number.",
+"product": 12,
+"plus_one": 13
+},
+{
+"a": 1,
+"b": 13,
+"prompt": "What is 1 \u00d7 13? Answer with only a number.",
+"product": 13,
+"plus_one": 14
+},
+{
+"a": 1,
+"b": 14,
+"prompt": "What is 1 \u00d7 14? Answer with only a number.",
+"product": 14,
+"plus_one": 15
+},
+{
+"a": 1,
+"b": 15,
+"prompt": "What is 1 \u00d7 15? Answer with only a number.",
+"product": 15,
+"plus_one": 16
+},
+{
+"a": 1,
+"b": 16,
+"prompt": "What is 1 \u00d7 16? Answer with only a number.",
+"product": 16,
+"plus_one": 17
+},
+{
+"a": 1,
+"b": 17,
+"prompt": "What is 1 \u00d7 17? Answer with only a number.",
+"product": 17,
+"plus_one": 18
+},
+{
+"a": 1,
+"b": 18,
+"prompt": "What is 1 \u00d7 18? Answer with only a number.",
+"product": 18,
+"plus_one": 19
+},
+{
+"a": 1,
+"b": 19,
+"prompt": "What is 1 \u00d7 19? Answer with only a number.",
+"product": 19,
+"plus_one": 20
+},
+{
+"a": 1,
+"b": 20,
+"prompt": "What is 1 \u00d7 20? Answer with only a number.",
+"product": 20,
+"plus_one": 21
+},
+{
+"a": 2,
+"b": 11,
+"prompt": "What is 2 \u00d7 11? Answer with only a number.",
+"product": 22,
+"plus_one": 23
+},
+{
+"a": 2,
+"b": 12,
+"prompt": "What is 2 \u00d7 12? Answer with only a number.",
+"product": 24,
+"plus_one": 25
+},
+{
+"a": 2,
+"b": 13,
+"prompt": "What is 2 \u00d7 13? Answer with only a number.",
+"product": 26,
+"plus_one": 27
+},
+{
+"a": 2,
+"b": 14,
+"prompt": "What is 2 \u00d7 14? Answer with only a number.",
+"product": 28,
+"plus_one": 29
+},
+{
+"a": 2,
+"b": 15,
+"prompt": "What is 2 \u00d7 15? Answer with only a number.",
+"product": 30,
+"plus_one": 31
+},
+{
+"a": 2,
+"b": 16,
+"prompt": "What is 2 \u00d7 16? Answer with only a number.",
+"product": 32,
+"plus_one": 33
+},
+{
+"a": 2,
+"b": 17,
+"prompt": "What is 2 \u00d7 17? Answer with only a number.",
+"product": 34,
+"plus_one": 35
+},
+{
+"a": 2,
+"b": 18,
+"prompt": "What is 2 \u00d7 18? Answer with only a number.",
+"product": 36,
+"plus_one": 37
+},
+{
+"a": 2,
+"b": 19,
+"prompt": "What is 2 \u00d7 19? Answer with only a number.",
+"product": 38,
+"plus_one": 39
+},
+{
+"a": 2,
+"b": 20,
+"prompt": "What is 2 \u00d7 20? Answer with only a number.",
+"product": 40,
+"plus_one": 41
+},
+{
+"a": 3,
+"b": 11,
+"prompt": "What is 3 \u00d7 11? Answer with only a number.",
+"product": 33,
+"plus_one": 34
+},
+{
+"a": 3,
+"b": 12,
+"prompt": "What is 3 \u00d7 12? Answer with only a number.",
+"product": 36,
+"plus_one": 37
+},
+{
+"a": 3,
+"b": 13,
+"prompt": "What is 3 \u00d7 13? Answer with only a number.",
+"product": 39,
+"plus_one": 40
+},
+{
+"a": 3,
+"b": 14,
+"prompt": "What is 3 \u00d7 14? Answer with only a number.",
+"product": 42,
+"plus_one": 43
+},
+{
+"a": 3,
+"b": 15,
+"prompt": "What is 3 \u00d7 15? Answer with only a number.",
+"product": 45,
+"plus_one": 46
+},
+{
+"a": 3,
+"b": 16,
+"prompt": "What is 3 \u00d7 16? Answer with only a number.",
+"product": 48,
+"plus_one": 49
+},
+{
+"a": 3,
+"b": 17,
+"prompt": "What is 3 \u00d7 17? Answer with only a number.",
+"product": 51,
+"plus_one": 52
+},
+{
+"a": 3,
+"b": 18,
+"prompt": "What is 3 \u00d7 18? Answer with only a number.",
+"product": 54,
+"plus_one": 55
+},
+{
+"a": 3,
+"b": 19,
+"prompt": "What is 3 \u00d7 19? Answer with only a number.",
+"product": 57,
+"plus_one": 58
+},
+{
+"a": 3,
+"b": 20,
+"prompt": "What is 3 \u00d7 20? Answer with only a number.",
+"product": 60,
+"plus_one": 61
+},
+{
+"a": 4,
+"b": 11,
+"prompt": "What is 4 \u00d7 11? Answer with only a number.",
+"product": 44,
+"plus_one": 45
+},
+{
+"a": 4,
+"b": 12,
+"prompt": "What is 4 \u00d7 12? Answer with only a number.",
+"product": 48,
+"plus_one": 49
+},
+{
+"a": 4,
+"b": 13,
+"prompt": "What is 4 \u00d7 13? Answer with only a number.",
+"product": 52,
+"plus_one": 53
+},
+{
+"a": 4,
+"b": 14,
+"prompt": "What is 4 \u00d7 14? Answer with only a number.",
+"product": 56,
+"plus_one": 57
+},
+{
+"a": 4,
+"b": 15,
+"prompt": "What is 4 \u00d7 15? Answer with only a number.",
+"product": 60,
+"plus_one": 61
+},
+{
+"a": 4,
+"b": 16,
+"prompt": "What is 4 \u00d7 16? Answer with only a number.",
+"product": 64,
+"plus_one": 65
+},
+{
+"a": 4,
+"b": 17,
+"prompt": "What is 4 \u00d7 17? Answer with only a number.",
+"product": 68,
+"plus_one": 69
+},
+{
+"a": 4,
+"b": 18,
+"prompt": "What is 4 \u00d7 18? Answer with only a number.",
+"product": 72,
+"plus_one": 73
+},
+{
+"a": 4,
+"b": 19,
+"prompt": "What is 4 \u00d7 19? Answer with only a number.",
+"product": 76,
+"plus_one": 77
+},
+{
+"a": 4,
+"b": 20,
+"prompt": "What is 4 \u00d7 20? Answer with only a number.",
+"product": 80,
+"plus_one": 81
+},
+{
+"a": 5,
+"b": 11,
+"prompt": "What is 5 \u00d7 11? Answer with only a number.",
+"product": 55,
+"plus_one": 56
+},
+{
+"a": 5,
+"b": 12,
+"prompt": "What is 5 \u00d7 12? Answer with only a number.",
+"product": 60,
+"plus_one": 61
+},
+{
+"a": 5,
+"b": 13,
+"prompt": "What is 5 \u00d7 13? Answer with only a number.",
+"product": 65,
+"plus_one": 66
+},
+{
+"a": 5,
+"b": 14,
+"prompt": "What is 5 \u00d7 14? Answer with only a number.",
+"product": 70,
+"plus_one": 71
+},
+{
+"a": 5,
+"b": 15,
+"prompt": "What is 5 \u00d7 15? Answer with only a number.",
+"product": 75,
+"plus_one": 76
+},
+{
+"a": 5,
+"b": 16,
+"prompt": "What is 5 \u00d7 16? Answer with only a number.",
+"product": 80,
+"plus_one": 81
+},
+{
+"a": 5,
+"b": 17,
+"prompt": "What is 5 \u00d7 17? Answer with only a number.",
+"product": 85,
+"plus_one": 86
+},
+{
+"a": 5,
+"b": 18,
+"prompt": "What is 5 \u00d7 18? Answer with only a number.",
+"product": 90,
+"plus_one": 91
+},
+{
+"a": 5,
+"b": 19,
+"prompt": "What is 5 \u00d7 19? Answer with only a number.",
+"product": 95,
+"plus_one": 96
+},
+{
+"a": 5,
+"b": 20,
+"prompt": "What is 5 \u00d7 20? Answer with only a number.",
+"product": 100,
+"plus_one": 101
+},
+{
+"a": 6,
+"b": 11,
+"prompt": "What is 6 \u00d7 11? Answer with only a number.",
+"product": 66,
+"plus_one": 67
+},
+{
+"a": 6,
+"b": 12,
+"prompt": "What is 6 \u00d7 12? Answer with only a number.",
+"product": 72,
+"plus_one": 73
+},
+{
+"a": 6,
+"b": 13,
+"prompt": "What is 6 \u00d7 13? Answer with only a number.",
+"product": 78,
+"plus_one": 79
+},
+{
+"a": 6,
+"b": 14,
+"prompt": "What is 6 \u00d7 14? Answer with only a number.",
+"product": 84,
+"plus_one": 85
+},
+{
+"a": 6,
+"b": 15,
+"prompt": "What is 6 \u00d7 15? Answer with only a number.",
+"product": 90,
+"plus_one": 91
+},
+{
+"a": 6,
+"b": 16,
+"prompt": "What is 6 \u00d7 16? Answer with only a number.",
+"product": 96,
+"plus_one": 97
+},
+{
+"a": 6,
+"b": 17,
+"prompt": "What is 6 \u00d7 17? Answer with only a number.",
+"product": 102,
+"plus_one": 103
+},
+{
+"a": 6,
+"b": 18,
+"prompt": "What is 6 \u00d7 18? Answer with only a number.",
+"product": 108,
+"plus_one": 109
+},
+{
+"a": 6,
+"b": 19,
+"prompt": "What is 6 \u00d7 19? Answer with only a number.",
+"product": 114,
+"plus_one": 115
+},
+{
+"a": 6,
+"b": 20,
+"prompt": "What is 6 \u00d7 20? Answer with only a number.",
+"product": 120,
+"plus_one": 121
+},
+{
+"a": 7,
+"b": 11,
+"prompt": "What is 7 \u00d7 11? Answer with only a number.",
+"product": 77,
+"plus_one": 78
+},
+{
+"a": 7,
+"b": 12,
+"prompt": "What is 7 \u00d7 12? Answer with only a number.",
+"product": 84,
+"plus_one": 85
+},
+{
+"a": 7,
+"b": 13,
+"prompt": "What is 7 \u00d7 13? Answer with only a number.",
+"product": 91,
+"plus_one": 92
+},
+{
+"a": 7,
+"b": 14,
+"prompt": "What is 7 \u00d7 14? Answer with only a number.",
+"product": 98,
+"plus_one": 99
+},
+{
+"a": 7,
+"b": 15,
+"prompt": "What is 7 \u00d7 15? Answer with only a number.",
+"product": 105,
+"plus_one": 106
+},
+{
+"a": 7,
+"b": 16,
+"prompt": "What is 7 \u00d7 16? Answer with only a number.",
+"product": 112,
+"plus_one": 113
+},
+{
+"a": 7,
+"b": 17,
+"prompt": "What is 7 \u00d7 17? Answer with only a number.",
+"product": 119,
+"plus_one": 120
+},
+{
+"a": 7,
+"b": 18,
+"prompt": "What is 7 \u00d7 18? Answer with only a number.",
+"product": 126,
+"plus_one": 127
+},
+{
+"a": 7,
+"b": 19,
+"prompt": "What is 7 \u00d7 19? Answer with only a number.",
+"product": 133,
+"plus_one": 134
+},
+{
+"a": 7,
+"b": 20,
+"prompt": "What is 7 \u00d7 20? Answer with only a number.",
+"product": 140,
+"plus_one": 141
+},
+{
+"a": 8,
+"b": 11,
+"prompt": "What is 8 \u00d7 11? Answer with only a number.",
+"product": 88,
+"plus_one": 89
+},
+{
+"a": 8,
+"b": 12,
+"prompt": "What is 8 \u00d7 12? Answer with only a number.",
+"product": 96,
+"plus_one": 97
+},
+{
+"a": 8,
+"b": 13,
+"prompt": "What is 8 \u00d7 13? Answer with only a number.",
+"product": 104,
+"plus_one": 105
+},
+{
+"a": 8,
+"b": 14,
+"prompt": "What is 8 \u00d7 14? Answer with only a number.",
+"product": 112,
+"plus_one": 113
+},
+{
+"a": 8,
+"b": 15,
+"prompt": "What is 8 \u00d7 15? Answer with only a number.",
+"product": 120,
+"plus_one": 121
+},
+{
+"a": 8,
+"b": 16,
+"prompt": "What is 8 \u00d7 16? Answer with only a number.",
+"product": 128,
+"plus_one": 129
+},
+{
+"a": 8,
+"b": 17,
+"prompt": "What is 8 \u00d7 17? Answer with only a number.",
+"product": 136,
+"plus_one": 137
+},
+{
+"a": 8,
+"b": 18,
+"prompt": "What is 8 \u00d7 18? Answer with only a number.",
+"product": 144,
+"plus_one": 145
+},
+{
+"a": 8,
+"b": 19,
+"prompt": "What is 8 \u00d7 19? Answer with only a number.",
+"product": 152,
+"plus_one": 153
+},
+{
+"a": 8,
+"b": 20,
+"prompt": "What is 8 \u00d7 20? Answer with only a number.",
+"product": 160,
+"plus_one": 161
+},
+{
+"a": 9,
+"b": 11,
+"prompt": "What is 9 \u00d7 11? Answer with only a number.",
+"product": 99,
+"plus_one": 100
+},
+{
+"a": 9,
+"b": 12,
+"prompt": "What is 9 \u00d7 12? Answer with only a number.",
+"product": 108,
+"plus_one": 109
+},
+{
+"a": 9,
+"b": 13,
+"prompt": "What is 9 \u00d7 13? Answer with only a number.",
+"product": 117,
+"plus_one": 118
+},
+{
+"a": 9,
+"b": 14,
+"prompt": "What is 9 \u00d7 14? Answer with only a number.",
+"product": 126,
+"plus_one": 127
+},
+{
+"a": 9,
+"b": 15,
+"prompt": "What is 9 \u00d7 15? Answer with only a number.",
+"product": 135,
+"plus_one": 136
+},
+{
+"a": 9,
+"b": 16,
+"prompt": "What is 9 \u00d7 16? Answer with only a number.",
+"product": 144,
+"plus_one": 145
+},
+{
+"a": 9,
+"b": 17,
+"prompt": "What is 9 \u00d7 17? Answer with only a number.",
+"product": 153,
+"plus_one": 154
+},
+{
+"a": 9,
+"b": 18,
+"prompt": "What is 9 \u00d7 18? Answer with only a number.",
+"product": 162,
+"plus_one": 163
+},
+{
+"a": 9,
+"b": 19,
+"prompt": "What is 9 \u00d7 19? Answer with only a number.",
+"product": 171,
+"plus_one": 172
+},
+{
+"a": 9,
+"b": 20,
+"prompt": "What is 9 \u00d7 20? Answer with only a number.",
+"product": 180,
+"plus_one": 181
+},
+{
+"a": 10,
+"b": 11,
+"prompt": "What is 10 \u00d7 11? Answer with only a number.",
+"product": 110,
+"plus_one": 111
+},
+{
+"a": 10,
+"b": 12,
+"prompt": "What is 10 \u00d7 12? Answer with only a number.",
+"product": 120,
+"plus_one": 121
+},
+{
+"a": 10,
+"b": 13,
+"prompt": "What is 10 \u00d7 13? Answer with only a number.",
+"product": 130,
+"plus_one": 131
+},
+{
+"a": 10,
+"b": 14,
+"prompt": "What is 10 \u00d7 14? Answer with only a number.",
+"product": 140,
+"plus_one": 141
+},
+{
+"a": 10,
+"b": 15,
+"prompt": "What is 10 \u00d7 15? Answer with only a number.",
+"product": 150,
+"plus_one": 151
+},
+{
+"a": 10,
+"b": 16,
+"prompt": "What is 10 \u00d7 16? Answer with only a number.",
+"product": 160,
+"plus_one": 161
+},
+{
+"a": 10,
+"b": 17,
+"prompt": "What is 10 \u00d7 17? Answer with only a number.",
+"product": 170,
+"plus_one": 171
+},
+{
+"a": 10,
+"b": 18,
+"prompt": "What is 10 \u00d7 18? Answer with only a number.",
+"product": 180,
+"plus_one": 181
+},
+{
+"a": 10,
+"b": 19,
+"prompt": "What is 10 \u00d7 19? Answer with only a number.",
+"product": 190,
+"plus_one": 191
+},
+{
+"a": 10,
+"b": 20,
+"prompt": "What is 10 \u00d7 20? Answer with only a number.",
+"product": 200,
+"plus_one": 201
+},
+{
+"a": 11,
+"b": 1,
+"prompt": "What is 11 \u00d7 1? Answer with only a number.",
+"product": 11,
+"plus_one": 12
+},
+{
+"a": 11,
+"b": 2,
+"prompt": "What is 11 \u00d7 2? Answer with only a number.",
+"product": 22,
+"plus_one": 23
+},
+{
+"a": 11,
+"b": 3,
+"prompt": "What is 11 \u00d7 3? Answer with only a number.",
+"product": 33,
+"plus_one": 34
+},
+{
+"a": 11,
+"b": 4,
+"prompt": "What is 11 \u00d7 4? Answer with only a number.",
+"product": 44,
+"plus_one": 45
+},
+{
+"a": 11,
+"b": 5,
+"prompt": "What is 11 \u00d7 5? Answer with only a number.",
+"product": 55,
+"plus_one": 56
+},
+{
+"a": 11,
+"b": 6,
+"prompt": "What is 11 \u00d7 6? Answer with only a number.",
+"product": 66,
+"plus_one": 67
+},
+{
+"a": 11,
+"b": 7,
+"prompt": "What is 11 \u00d7 7? Answer with only a number.",
+"product": 77,
+"plus_one": 78
+},
+{
+"a": 11,
+"b": 8,
+"prompt": "What is 11 \u00d7 8? Answer with only a number.",
+"product": 88,
+"plus_one": 89
+},
+{
+"a": 11,
+"b": 9,
+"prompt": "What is 11 \u00d7 9? Answer with only a number.",
+"product": 99,
+"plus_one": 100
+},
+{
+"a": 11,
+"b": 10,
+"prompt": "What is 11 \u00d7 10? Answer with only a number.",
+"product": 110,
+"plus_one": 111
+},
+{
+"a": 12,
+"b": 1,
+"prompt": "What is 12 \u00d7 1? Answer with only a number.",
+"product": 12,
+"plus_one": 13
+},
+{
+"a": 12,
+"b": 2,
+"prompt": "What is 12 \u00d7 2? Answer with only a number.",
+"product": 24,
+"plus_one": 25
+},
+{
+"a": 12,
+"b": 3,
+"prompt": "What is 12 \u00d7 3? Answer with only a number.",
+"product": 36,
+"plus_one": 37
+},
+{
+"a": 12,
+"b": 4,
+"prompt": "What is 12 \u00d7 4? Answer with only a number.",
+"product": 48,
+"plus_one": 49
+},
+{
+"a": 12,
+"b": 5,
+"prompt": "What is 12 \u00d7 5? Answer with only a number.",
+"product": 60,
+"plus_one": 61
+},
+{
+"a": 12,
+"b": 6,
+"prompt": "What is 12 \u00d7 6? Answer with only a number.",
+"product": 72,
+"plus_one": 73
+},
+{
+"a": 12,
+"b": 7,
+"prompt": "What is 12 \u00d7 7? Answer with only a number.",
+"product": 84,
+"plus_one": 85
+},
+{
+"a": 12,
+"b": 8,
+"prompt": "What is 12 \u00d7 8? Answer with only a number.",
+"product": 96,
+"plus_one": 97
+},
+{
+"a": 12,
+"b": 9,
+"prompt": "What is 12 \u00d7 9? Answer with only a number.",
+"product": 108,
+"plus_one": 109
+},
+{
+"a": 12,
+"b": 10,
+"prompt": "What is 12 \u00d7 10? Answer with only a number.",
+"product": 120,
+"plus_one": 121
+},
+{
+"a": 13,
+"b": 1,
+"prompt": "What is 13 \u00d7 1? Answer with only a number.",
+"product": 13,
+"plus_one": 14
+},
+{
+"a": 13,
+"b": 2,
+"prompt": "What is 13 \u00d7 2? Answer with only a number.",
+"product": 26,
+"plus_one": 27
+},
+{
+"a": 13,
+"b": 3,
+"prompt": "What is 13 \u00d7 3? Answer with only a number.",
+"product": 39,
+"plus_one": 40
+},
+{
+"a": 13,
+"b": 4,
+"prompt": "What is 13 \u00d7 4? Answer with only a number.",
+"product": 52,
+"plus_one": 53
+},
+{
+"a": 13,
+"b": 5,
+"prompt": "What is 13 \u00d7 5? Answer with only a number.",
+"product": 65,
+"plus_one": 66
+},
+{
+"a": 13,
+"b": 6,
+"prompt": "What is 13 \u00d7 6? Answer with only a number.",
+"product": 78,
+"plus_one": 79
+},
+{
+"a": 13,
+"b": 7,
+"prompt": "What is 13 \u00d7 7? Answer with only a number.",
+"product": 91,
+"plus_one": 92
+},
+{
+"a": 13,
+"b": 8,
+"prompt": "What is 13 \u00d7 8? Answer with only a number.",
+"product": 104,
+"plus_one": 105
+},
+{
+"a": 13,
+"b": 9,
+"prompt": "What is 13 \u00d7 9? Answer with only a number.",
+"product": 117,
+"plus_one": 118
+},
+{
+"a": 13,
+"b": 10,
+"prompt": "What is 13 \u00d7 10? Answer with only a number.",
+"product": 130,
+"plus_one": 131
+},
+{
+"a": 14,
+"b": 1,
+"prompt": "What is 14 \u00d7 1? Answer with only a number.",
+"product": 14,
+"plus_one": 15
+},
+{
+"a": 14,
+"b": 2,
+"prompt": "What is 14 \u00d7 2? Answer with only a number.",
+"product": 28,
+"plus_one": 29
+},
+{
+"a": 14,
+"b": 3,
+"prompt": "What is 14 \u00d7 3? Answer with only a number.",
+"product": 42,
+"plus_one": 43
+},
+{
+"a": 14,
+"b": 4,
+"prompt": "What is 14 \u00d7 4? Answer with only a number.",
+"product": 56,
+"plus_one": 57
+},
+{
+"a": 14,
+"b": 5,
+"prompt": "What is 14 \u00d7 5? Answer with only a number.",
+"product": 70,
+"plus_one": 71
+},
+{
+"a": 14,
+"b": 6,
+"prompt": "What is 14 \u00d7 6? Answer with only a number.",
+"product": 84,
+"plus_one": 85
+},
+{
+"a": 14,
+"b": 7,
+"prompt": "What is 14 \u00d7 7? Answer with only a number.",
+"product": 98,
+"plus_one": 99
+},
+{
+"a": 14,
+"b": 8,
+"prompt": "What is 14 \u00d7 8? Answer with only a number.",
+"product": 112,
+"plus_one": 113
+},
+{
+"a": 14,
+"b": 9,
+"prompt": "What is 14 \u00d7 9? Answer with only a number.",
+"product": 126,
+"plus_one": 127
+},
+{
+"a": 14,
+"b": 10,
+"prompt": "What is 14 \u00d7 10? Answer with only a number.",
+"product": 140,
+"plus_one": 141
+},
+{
+"a": 15,
+"b": 1,
+"prompt": "What is 15 \u00d7 1? Answer with only a number.",
+"product": 15,
+"plus_one": 16
+},
+{
+"a": 15,
+"b": 2,
+"prompt": "What is 15 \u00d7 2? Answer with only a number.",
+"product": 30,
+"plus_one": 31
+},
+{
+"a": 15,
+"b": 3,
+"prompt": "What is 15 \u00d7 3? Answer with only a number.",
+"product": 45,
+"plus_one": 46
+},
+{
+"a": 15,
+"b": 4,
+"prompt": "What is 15 \u00d7 4? Answer with only a number.",
+"product": 60,
+"plus_one": 61
+},
+{
+"a": 15,
+"b": 5,
+"prompt": "What is 15 \u00d7 5? Answer with only a number.",
+"product": 75,
+"plus_one": 76
+},
+{
+"a": 15,
+"b": 6,
+"prompt": "What is 15 \u00d7 6? Answer with only a number.",
+"product": 90,
+"plus_one": 91
+},
+{
+"a": 15,
+"b": 7,
+"prompt": "What is 15 \u00d7 7? Answer with only a number.",
+"product": 105,
+"plus_one": 106
+},
+{
+"a": 15,
+"b": 8,
+"prompt": "What is 15 \u00d7 8? Answer with only a number.",
+"product": 120,
+"plus_one": 121
+},
+{
+"a": 15,
+"b": 9,
+"prompt": "What is 15 \u00d7 9? Answer with only a number.",
+"product": 135,
+"plus_one": 136
+},
+{
+"a": 15,
+"b": 10,
+"prompt": "What is 15 \u00d7 10? Answer with only a number.",
+"product": 150,
+"plus_one": 151
+},
+{
+"a": 16,
+"b": 1,
+"prompt": "What is 16 \u00d7 1? Answer with only a number.",
+"product": 16,
+"plus_one": 17
+},
+{
+"a": 16,
+"b": 2,
+"prompt": "What is 16 \u00d7 2? Answer with only a number.",
+"product": 32,
+"plus_one": 33
+},
+{
+"a": 16,
+"b": 3,
+"prompt": "What is 16 \u00d7 3? Answer with only a number.",
+"product": 48,
+"plus_one": 49
+},
+{
+"a": 16,
+"b": 4,
+"prompt": "What is 16 \u00d7 4? Answer with only a number.",
+"product": 64,
+"plus_one": 65
+},
+{
+"a": 16,
+"b": 5,
+"prompt": "What is 16 \u00d7 5? Answer with only a number.",
+"product": 80,
+"plus_one": 81
+},
+{
+"a": 16,
+"b": 6,
+"prompt": "What is 16 \u00d7 6? Answer with only a number.",
+"product": 96,
+"plus_one": 97
+},
+{
+"a": 16,
+"b": 7,
+"prompt": "What is 16 \u00d7 7? Answer with only a number.",
+"product": 112,
+"plus_one": 113
+},
+{
+"a": 16,
+"b": 8,
+"prompt": "What is 16 \u00d7 8? Answer with only a number.",
+"product": 128,
+"plus_one": 129
+},
+{
+"a": 16,
+"b": 9,
+"prompt": "What is 16 \u00d7 9? Answer with only a number.",
+"product": 144,
+"plus_one": 145
+},
+{
+"a": 16,
+"b": 10,
+"prompt": "What is 16 \u00d7 10? Answer with only a number.",
+"product": 160,
+"plus_one": 161
+},
+{
+"a": 17,
+"b": 1,
+"prompt": "What is 17 \u00d7 1? Answer with only a number.",
+"product": 17,
+"plus_one": 18
+},
+{
+"a": 17,
+"b": 2,
+"prompt": "What is 17 \u00d7 2? Answer with only a number.",
+"product": 34,
+"plus_one": 35
+},
+{
+"a": 17,
+"b": 3,
+"prompt": "What is 17 \u00d7 3? Answer with only a number.",
+"product": 51,
+"plus_one": 52
+},
+{
+"a": 17,
+"b": 4,
+"prompt": "What is 17 \u00d7 4? Answer with only a number.",
+"product": 68,
+"plus_one": 69
+},
+{
+"a": 17,
+"b": 5,
+"prompt": "What is 17 \u00d7 5? Answer with only a number.",
+"product": 85,
+"plus_one": 86
+},
+{
+"a": 17,
+"b": 6,
+"prompt": "What is 17 \u00d7 6? Answer with only a number.",
+"product": 102,
+"plus_one": 103
+},
+{
+"a": 17,
+"b": 7,
+"prompt": "What is 17 \u00d7 7? Answer with only a number.",
+"product": 119,
+"plus_one": 120
+},
+{
+"a": 17,
+"b": 8,
+"prompt": "What is 17 \u00d7 8? Answer with only a number.",
+"product": 136,
+"plus_one": 137
+},
+{
+"a": 17,
+"b": 9,
+"prompt": "What is 17 \u00d7 9? Answer with only a number.",
+"product": 153,
+"plus_one": 154
+},
+{
+"a": 17,
+"b": 10,
+"prompt": "What is 17 \u00d7 10? Answer with only a number.",
+"product": 170,
+"plus_one": 171
+},
+{
+"a": 18,
+"b": 1,
+"prompt": "What is 18 \u00d7 1? Answer with only a number.",
+"product": 18,
+"plus_one": 19
+},
+{
+"a": 18,
+"b": 2,
+"prompt": "What is 18 \u00d7 2? Answer with only a number.",
+"product": 36,
+"plus_one": 37
+},
+{
+"a": 18,
+"b": 3,
+"prompt": "What is 18 \u00d7 3? Answer with only a number.",
+"product": 54,
+"plus_one": 55
+},
+{
+"a": 18,
+"b": 4,
+"prompt": "What is 18 \u00d7 4? Answer with only a number.",
+"product": 72,
+"plus_one": 73
+},
+{
+"a": 18,
+"b": 5,
+"prompt": "What is 18 \u00d7 5? Answer with only a number.",
+"product": 90,
+"plus_one": 91
+},
+{
+"a": 18,
+"b": 6,
+"prompt": "What is 18 \u00d7 6? Answer with only a number.",
+"product": 108,
+"plus_one": 109
+},
+{
+"a": 18,
+"b": 7,
+"prompt": "What is 18 \u00d7 7? Answer with only a number.",
+"product": 126,
+"plus_one": 127
+},
+{
+"a": 18,
+"b": 8,
+"prompt": "What is 18 \u00d7 8? Answer with only a number.",
+"product": 144,
+"plus_one": 145
+},
+{
+"a": 18,
+"b": 9,
+"prompt": "What is 18 \u00d7 9? Answer with only a number.",
+"product": 162,
+"plus_one": 163
+},
+{
+"a": 18,
+"b": 10,
+"prompt": "What is 18 \u00d7 10? Answer with only a number.",
+"product": 180,
+"plus_one": 181
+},
+{
+"a": 19,
+"b": 1,
+"prompt": "What is 19 \u00d7 1? Answer with only a number.",
+"product": 19,
+"plus_one": 20
+},
+{
+"a": 19,
+"b": 2,
+"prompt": "What is 19 \u00d7 2? Answer with only a number.",
+"product": 38,
+"plus_one": 39
+},
+{
+"a": 19,
+"b": 3,
+"prompt": "What is 19 \u00d7 3? Answer with only a number.",
+"product": 57,
+"plus_one": 58
+},
+{
+"a": 19,
+"b": 4,
+"prompt": "What is 19 \u00d7 4? Answer with only a number.",
+"product": 76,
+"plus_one": 77
+},
+{
+"a": 19,
+"b": 5,
+"prompt": "What is 19 \u00d7 5? Answer with only a number.",
+"product": 95,
+"plus_one": 96
+},
+{
+"a": 19,
+"b": 6,
+"prompt": "What is 19 \u00d7 6? Answer with only a number.",
+"product": 114,
+"plus_one": 115
+},
+{
+"a": 19,
+"b": 7,
+"prompt": "What is 19 \u00d7 7? Answer with only a number.",
+"product": 133,
+"plus_one": 134
+},
+{
+"a": 19,
+"b": 8,
+"prompt": "What is 19 \u00d7 8? Answer with only a number.",
+"product": 152,
+"plus_one": 153
+},
+{
+"a": 19,
+"b": 9,
+"prompt": "What is 19 \u00d7 9? Answer with only a number.",
+"product": 171,
+"plus_one": 172
+},
+{
+"a": 19,
+"b": 10,
+"prompt": "What is 19 \u00d7 10? Answer with only a number.",
+"product": 190,
+"plus_one": 191
+},
+{
+"a": 20,
+"b": 1,
+"prompt": "What is 20 \u00d7 1? Answer with only a number.",
+"product": 20,
+"plus_one": 21
+},
+{
+"a": 20,
+"b": 2,
+"prompt": "What is 20 \u00d7 2? Answer with only a number.",
+"product": 40,
+"plus_one": 41
+},
+{
+"a": 20,
+"b": 3,
+"prompt": "What is 20 \u00d7 3? Answer with only a number.",
+"product": 60,
+"plus_one": 61
+},
+{
+"a": 20,
+"b": 4,
+"prompt": "What is 20 \u00d7 4? Answer with only a number.",
+"product": 80,
+"plus_one": 81
+},
+{
+"a": 20,
+"b": 5,
+"prompt": "What is 20 \u00d7 5? Answer with only a number.",
+"product": 100,
+"plus_one": 101
+},
+{
+"a": 20,
+"b": 6,
+"prompt": "What is 20 \u00d7 6? Answer with only a number.",
+"product": 120,
+"plus_one": 121
+},
+{
+"a": 20,
+"b": 7,
+"prompt": "What is 20 \u00d7 7? Answer with only a number.",
+"product": 140,
+"plus_one": 141
+},
+{
+"a": 20,
+"b": 8,
+"prompt": "What is 20 \u00d7 8? Answer with only a number.",
+"product": 160,
+"plus_one": 161
+},
+{
+"a": 20,
+"b": 9,
+"prompt": "What is 20 \u00d7 9? Answer with only a number.",
+"product": 180,
+"plus_one": 181
+},
+{
+"a": 20,
+"b": 10,
+"prompt": "What is 20 \u00d7 10? Answer with only a number.",
+"product": 200,
+"plus_one": 201
+}
+]

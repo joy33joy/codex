@@ -1,0 +1,149 @@
+[
+{
+"a": 1,
+"b": 5,
+"prompt": "What is 1 \u00d7 5? Answer with only a number.",
+"product": 5,
+"plus_one": 6
+},
+{
+"a": 1,
+"b": 8,
+"prompt": "What is 1 \u00d7 8? Answer with only a number.",
+"product": 8,
+"plus_one": 9
+},
+{
+"a": 2,
+"b": 2,
+"prompt": "What is 2 \u00d7 2? Answer with only a number.",
+"product": 4,
+"plus_one": 5
+},
+{
+"a": 2,
+"b": 3,
+"prompt": "What is 2 \u00d7 3? Answer with only a number.",
+"product": 6,
+"plus_one": 7
+},
+{
+"a": 2,
+"b": 9,
+"prompt": "What is 2 \u00d7 9? Answer with only a number.",
+"product": 18,
+"plus_one": 19
+},
+{
+"a": 3,
+"b": 2,
+"prompt": "What is 3 \u00d7 2? Answer with only a number.",
+"product": 6,
+"plus_one": 7
+},
+{
+"a": 3,
+"b": 4,
+"prompt": "What is 3 \u00d7 4? Answer with only a number.",
+"product": 12,
+"plus_one": 13
+},
+{
+"a": 3,
+"b": 6,
+"prompt": "What is 3 \u00d7 6? Answer with only a number.",
+"product": 18,
+"plus_one": 19
+},
+{
+"a": 4,
+"b": 3,
+"prompt": "What is 4 \u00d7 3? Answer with only a number.",
+"product": 12,
+"plus_one": 13
+},
+{
+"a": 4,
+"b": 5,
+"prompt": "What is 4 \u00d7 5? Answer with only a number.",
+"product": 20,
+"plus_one": 21
+},
+{
+"a": 4,
+"b": 6,
+"prompt": "What is 4 \u00d7 6? Answer with only a number.",
+"product": 24,
+"plus_one": 25
+},
+{
+"a": 5,
+"b": 1,
+"prompt": "What is 5 \u00d7 1? Answer with only a number.",
+"product": 5,
+"plus_one": 6
+},
+{
+"a": 5,
+"b": 4,
+"prompt": "What is 5 \u00d7 4? Answer with only a number.",
+"product": 20,
+"plus_one": 21
+},
+{
+"a": 5,
+"b": 8,
+"prompt": "What is 5 \u00d7 8? Answer with only a number.",
+"product": 40,
+"plus_one": 41
+},
+{
+"a": 6,
+"b": 3,
+"prompt": "What is 6 \u00d7 3? Answer with only a number.",
+"product": 18,
+"plus_one": 19
+},
+{
+"a": 6,
+"b": 4,
+"prompt": "What is 6 \u00d7 4? Answer with only a number.",
+"product": 24,
+"plus_one": 25
+},
+{
+"a": 6,
+"b": 7,
+"prompt": "What is 6 \u00d7 7? Answer with only a number.",
+"product": 42,
+"plus_one": 43
+},
+{
+"a": 7,
+"b": 6,
+"prompt": "What is 7 \u00d7 6? Answer with only a number.",
+"product": 42,
+"plus_one": 43
+},
+{
+"a": 8,
+"b": 1,
+"prompt": "What is 8 \u00d7 1? Answer with only a number.",
+"product": 8,
+"plus_one": 9
+},
+{
+"a": 8,
+"b": 5,
+"prompt": "What is 8 \u00d7 5? Answer with only a number.",
+"product": 40,
+"plus_one": 41
+},
+{
+"a": 9,
+"b": 2,
+"prompt": "What is 9 \u00d7 2? Answer with only a number.",
+"product": 18,
+"plus_one": 19
+}
+]
