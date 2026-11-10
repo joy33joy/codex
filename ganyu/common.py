@@ -1,5 +1,7 @@
 """Shared settings used by all steps."""
 
+import difflib
+import re
 from pathlib import Path
 
 import tinker
@@ -17,6 +19,7 @@ STUDENT_RENDERER = "qwen3_8_disable_thinking"  # hidden "thinking" off, so it ju
 
 HERE = Path(__file__).parent
 DATA_FILE = HERE / "data" / "ganyu_train.jsonl"  # made by make_data.py
+LONG_DATA_FILE = HERE / "data" / "ganyu_long.jsonl"  # made by make_long_data.py (long chats)
 MY_DATA_FILE = HERE / "data" / "my_train.jsonl"  # made by prepare_my_data.py from your files
 CHECKPOINT_FILE = HERE / "checkpoint.txt"  # where the trained model's address is saved
 
@@ -42,3 +45,44 @@ async def chat_once(
     result = await sampling_client.sample(prompt=prompt, sampling_params=params, num_samples=1)
     message, _ = renderer.parse_response(result.sequences[0].tokens)
     return renderers.get_text_content(message).strip()
+
+
+# ---------------------------------------------------------------------------
+# Repeat guard: in long chats a model can start copying its own earlier
+# replies, and once one copy is in the conversation the loop feeds itself.
+# So before showing a reply we check it against everything Ganyu already said.
+# ---------------------------------------------------------------------------
+
+REPEAT_LIMIT = 0.5  # above this, the reply counts as a repeat and is retried
+
+
+def repeat_score(reply: str, earlier_replies: list[str]) -> float:
+    """0 = completely new, 1 = a copy of something Ganyu already said."""
+    if not earlier_replies:
+        return 0.0
+    whole = max(difflib.SequenceMatcher(None, reply, e).ratio() for e in earlier_replies)
+    # Also catch reusing whole sentences inside an otherwise new reply.
+    said = {s.strip().lower() for e in earlier_replies for s in re.split(r"(?<=[.!?…])\s+", e)}
+    sentences = [s.strip().lower() for s in re.split(r"(?<=[.!?…])\s+", reply) if len(s.split()) >= 6]
+    reused = sum(s in said for s in sentences) / len(sentences) if sentences else 0.0
+    return max(whole, reused)
+
+
+async def reply_as_ganyu(
+    sampling_client: tinker.SamplingClient,
+    renderer: renderers.Renderer,
+    messages: list[dict],
+    temperature: float = 0.7,
+) -> str:
+    """Like chat_once, but retries (a little more freely each time) if Ganyu
+    starts repeating herself, and returns the least repetitive answer."""
+    earlier = [m["content"] for m in messages if m["role"] == "assistant"]
+    best, best_score = "", 2.0
+    for extra in (0.0, 0.2, 0.35, 0.5):
+        reply = await chat_once(sampling_client, renderer, messages, temperature=temperature + extra)
+        score = repeat_score(reply, earlier)
+        if score < best_score:
+            best, best_score = reply, score
+        if score <= REPEAT_LIMIT:
+            break
+    return best

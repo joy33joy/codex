@@ -22,8 +22,8 @@ from tinker_cookbook.renderers import TrainOnWhat
 from tinker_cookbook.supervised.common import compute_mean_nll
 from tinker_cookbook.supervised.data import conversation_to_datum
 
-from common import (CHECKPOINT_FILE, DATA_FILE, MY_DATA_FILE, STUDENT_MODEL, STUDENT_RENDERER,
-                    get_renderer)
+from common import (CHECKPOINT_FILE, DATA_FILE, LONG_DATA_FILE, MY_DATA_FILE, STUDENT_MODEL,
+                    STUDENT_RENDERER, get_renderer)
 
 LORA_RANK = 32
 LEARNING_RATE = 2e-4
@@ -53,6 +53,10 @@ def main() -> None:
     if not args.only_mine:
         conversations += load(DATA_FILE)
         print(f"Generated data: {len(conversations)} conversations ({DATA_FILE.name})")
+        if LONG_DATA_FILE.exists():
+            long_chats = load(LONG_DATA_FILE)
+            conversations += long_chats
+            print(f"Long chats:     {len(long_chats)} conversations ({LONG_DATA_FILE.name})")
     if not args.no_mine and MY_DATA_FILE.exists():
         mine = load(MY_DATA_FILE)
         conversations += mine * args.mine_repeat

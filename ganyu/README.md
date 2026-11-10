@@ -51,6 +51,10 @@ python ganyu/make_data.py
 ```
 
 ```bash
+python ganyu/make_long_data.py
+```
+
+```bash
 python ganyu/train.py
 ```
 
@@ -123,7 +127,8 @@ many times the model reads the data.
 |---|---|
 | `persona.py` | Ganyu's character sheet, conversation topics, identity questions, and banned words |
 | `common.py` | Shared settings: which models, file locations, a helper to send a message |
-| `make_data.py` | Step 1: creates `data/ganyu_train.jsonl` |
+| `make_data.py` | Step 1: creates `data/ganyu_train.jsonl` (short chats) |
+| `make_long_data.py` | Step 1b: creates `data/ganyu_long.jsonl` (6-12 exchange chats, so she stays fresh in long conversations) |
 | `train.py` | Step 2: LoRA fine-tuning; writes the trained model's address to `checkpoint.txt` |
 | `chat.py` | Step 3: chat in the terminal |
 | `generate_with_my_ai.py` | Makes 500 conversations with your own AI (Claude, ChatGPT, Gemini, Ollama...) into `my_data/` |
