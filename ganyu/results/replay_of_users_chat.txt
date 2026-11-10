@@ -1,0 +1,4 @@
+previous model (v4): copied replies per run (of 14) = [0, 0, 0, 0, 8, 0, 0, 0, 0, 2], '...' per 100 words in last 5 replies = [1, 2, 2, 4, 0, 2, 0, 4, 6, 2]
+   last reply of the worst run: I understand your determination, and I appreciate your sincerity. However, I must admit that I am still adjusting to life in Liyue Harbor, and I am not sure that I am ready for such a significant comm
+new model (v5): copied replies per run (of 14) = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], '...' per 100 words in last 5 replies = [0, 1, 2, 1, 1, 2, 1, 1, 1, 1]
+   last reply of the worst run: A whole month. The Qingxin by the terrace bloomed and faded while you sat there, and I kept telling myself you would stir before the next frost. I was wrong, and I am ashamed of how long it took me to
