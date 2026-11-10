@@ -21,7 +21,8 @@ import re
 import tinker
 from tqdm.asyncio import tqdm_asyncio
 
-from common import DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer
+from common import (DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer,
+                    is_planning_notes)
 from persona import (EDGE_QUESTIONS, FORBIDDEN_WORDS, IDENTITY_QUESTIONS, MODERN_QUESTIONS, PERSONA,
                      TOPICS)
 
@@ -36,7 +37,8 @@ SEED = 0
 
 def looks_ok(reply: str) -> bool:
     low = reply.lower()
-    return bool(reply) and len(reply) < 2500 and not any(w in low for w in FORBIDDEN_WORDS)
+    return (bool(reply) and len(reply) < 2500 and not is_planning_notes(reply)
+            and not any(w in low for w in FORBIDDEN_WORDS))
 
 
 def parse_json_list(text: str) -> list[str]:
@@ -74,7 +76,7 @@ async def main() -> None:
 
     print("Inventing user messages...")
     batches = await tqdm_asyncio.gather(*(invent(t) for t in TOPICS))
-    questions = [q for batch in batches for q in batch]
+    questions = [q for batch in batches for q in batch if not is_planning_notes(q)]
     questions += IDENTITY_QUESTIONS * ANSWERS_PER_IDENTITY_QUESTION
     questions += MODERN_QUESTIONS * ANSWERS_PER_MODERN_QUESTION
     questions += EDGE_QUESTIONS * ANSWERS_PER_EDGE_QUESTION
@@ -103,7 +105,7 @@ async def main() -> None:
                 temperature=1.0,
                 max_tokens=200,
             )
-            if follow_up:
+            if follow_up and not is_planning_notes(follow_up):
                 second = await ask(as_ganyu([*convo, {"role": "user", "content": follow_up}]))
                 if looks_ok(second):
                     convo += [{"role": "user", "content": follow_up},

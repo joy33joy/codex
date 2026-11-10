@@ -67,3 +67,27 @@ def repeat_score(reply: str, earlier_replies: list[str]) -> float:
     reused = sum(s in said for s in sentences) / len(sentences) if sentences else 0.0
     return max(whole, reused)
 
+
+
+# ---------------------------------------------------------------------------
+# Planning-note filter. The teacher model sometimes writes its own planning
+# ("The user wants...", "I'll respond as Ganyu...") instead of the message it
+# was asked for. If that gets into the training data, Ganyu learns to talk
+# like that. Every teacher output is checked with this before it is kept.
+# ---------------------------------------------------------------------------
+
+_VERB = r"(respond|reply|write|produce|output|continue|play|react|draft|generate|analy[sz]e|consider)"
+_NOTES_START = re.compile(
+    r"^\W*(the user\b|user's message|user says|user wants|user asks|i see the user|i've compiled|"
+    r"i (need|have) (to )?" + _VERB + r"|i('ll| will| should| must) " + _VERB + r"|i produce|"
+    r"let me " + _VERB + r"|we need to " + _VERB + r"|should " + _VERB + r"|#+ ?task|task context|"
+    r"incorrect\. please|okay,? (so )?the user|analysis:|draft:)", re.I)
+_NOTES_ANYWHERE = re.compile(
+    r"(the user wants|the user is|user would like|respond as ganyu|reply as ganyu|continue as ganyu|"
+    r"roleplaying as ganyu|play the person|person's next message|next message only|output only|"
+    r"\b\d-\d sentences|in first person,|stay in character|no analysis|message \d+ of \d+)", re.I)
+
+
+def is_planning_notes(text: str) -> bool:
+    """True if the text is the teacher's planning, not a real chat message."""
+    return bool(_NOTES_START.search(text) or _NOTES_ANYWHERE.search(text))

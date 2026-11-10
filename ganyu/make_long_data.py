@@ -28,7 +28,7 @@ import tinker
 from tqdm.asyncio import tqdm_asyncio
 
 from common import (LONG_DATA_FILE, REPEAT_LIMIT, TEACHER_MODEL, TEACHER_RENDERER, chat_once,
-                    get_renderer, repeat_score)
+                    get_renderer, is_planning_notes, repeat_score)
 from make_data import looks_ok
 from persona import LONG_SCENARIOS, PERSONA
 
@@ -48,14 +48,6 @@ secretary of the Liyue Qixing). Throughout this chat, the person behaves like th
 Write only the person's next message (message {number} of about {total}). Stay \
 true to the behaviour above, sound like a real person typing, and keep it short \
 unless the behaviour calls for more. Output only the message itself."""
-
-
-def looks_like_notes(person_message: str) -> bool:
-    """True if the teacher leaked its own planning instead of writing the person's message."""
-    low = person_message.lower()
-    return len(person_message) > 600 or any(w in low for w in (
-        "roleplay", "role-play", "instruction", "scenario", "next message", "the person",
-        "ganyu:", "person:", "stage direction"))
 
 
 def narrates(reply: str) -> bool:
@@ -84,12 +76,17 @@ async def main() -> None:
         for number in range(1, exchanges + 1):
             transcript = "\n".join(
                 f"{'PERSON' if m['role'] == 'user' else 'GANYU'}: {m['content']}" for m in convo)
-            person = await ask([{"role": "user", "content": PERSON_PROMPT.format(
-                scenario=scenario, number=number, total=exchanges,
-                transcript=f"The chat so far:\n{transcript}" if convo else "The chat has not started yet.",
-            )}], temperature=1.0, max_tokens=200)
-            person = person.strip().strip('"')
-            if not person or looks_like_notes(person):
+            person = ""
+            for _ in range(3):  # the teacher sometimes writes planning notes instead: ask again
+                candidate = await ask([{"role": "user", "content": PERSON_PROMPT.format(
+                    scenario=scenario, number=number, total=exchanges,
+                    transcript=f"The chat so far:\n{transcript}" if convo else "The chat has not started yet.",
+                )}], temperature=1.0, max_tokens=300)
+                candidate = candidate.strip().strip('"')
+                if candidate and len(candidate) < 600 and not is_planning_notes(candidate):
+                    person = candidate
+                    break
+            if not person:
                 break
             history = [*convo, {"role": "user", "content": person}]
             earlier = [m["content"] for m in convo if m["role"] == "assistant"]

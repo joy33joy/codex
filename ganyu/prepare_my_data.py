@@ -28,7 +28,8 @@ import sys
 import tinker
 from tqdm.asyncio import tqdm_asyncio
 
-from common import HERE, MY_DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer
+from common import (HERE, MY_DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer,
+                    is_planning_notes)
 from make_data import looks_ok
 from persona import FORBIDDEN_WORDS, PERSONA
 
@@ -117,7 +118,9 @@ async def generate(lines: list[str], questions: list[str]) -> tuple[list[list[di
             "Output only that message."
         )}], temperature=0.9, max_tokens=200)
         user = user.strip().strip('"')
-        return [{"role": "user", "content": user}, {"role": "assistant", "content": line}] if user else None
+        if not user or is_planning_notes(user):
+            return None
+        return [{"role": "user", "content": user}, {"role": "assistant", "content": line}]
 
     async def answer(question: str) -> list[dict] | None:
         reply = await ask([{"role": "system", "content": PERSONA}, {"role": "user", "content": question}])

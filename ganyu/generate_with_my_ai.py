@@ -40,7 +40,7 @@ import random
 import re
 import sys
 
-from common import HERE
+from common import HERE, is_planning_notes
 from persona import FORBIDDEN_WORDS, IDENTITY_QUESTIONS, MODERN_QUESTIONS, PERSONA, TOPICS
 
 OUT_FILE = HERE / "my_data" / "conversations.jsonl"
@@ -236,6 +236,8 @@ def parse_conversation(text: str) -> tuple[list[dict] | None, str]:
         want = "user" if i % 2 == 0 else "assistant"
         if not isinstance(m, dict) or m.get("role") != want or not str(m.get("content", "")).strip():
             return None, "roles must alternate user/assistant and not be empty"
+        if is_planning_notes(m["content"]):
+            return None, "the AI wrote planning notes instead of a message"
         if want == "assistant":
             hits = [w for w in FORBIDDEN_WORDS if w in m["content"].lower()]
             if hits:

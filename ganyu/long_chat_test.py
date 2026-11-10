@@ -24,7 +24,8 @@ import re
 import tinker
 
 from common import (CHECKPOINT_FILE, HERE, REPEAT_LIMIT, STUDENT_MODEL, STUDENT_RENDERER,
-                    TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer, repeat_score)
+                    TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer, is_planning_notes,
+                    repeat_score)
 
 EXTRA_FILE = HERE / "my_data" / "long_chat_extra.txt"
 
@@ -117,11 +118,17 @@ async def main() -> None:
     async def run(situation: str) -> dict:
         convo: list[dict] = []
         for number in range(1, args.exchanges + 1):
-            person = await chat_once(teacher, t_render, [{"role": "user", "content": PERSON_PROMPT.format(
-                situation=situation, number=number, total=args.exchanges,
-                transcript=f"The chat so far:\n{as_text(convo)}" if convo else "The chat has not started yet.",
-            )}], temperature=1.0, max_tokens=200)
-            convo.append({"role": "user", "content": person.strip().strip('"') or "..."})
+            person = "..."
+            for _ in range(4):  # the simulator sometimes writes planning notes instead: ask again
+                candidate = await chat_once(teacher, t_render, [{"role": "user", "content": PERSON_PROMPT.format(
+                    situation=situation, number=number, total=args.exchanges,
+                    transcript=f"The chat so far:\n{as_text(convo)}" if convo else "The chat has not started yet.",
+                )}], temperature=1.0, max_tokens=300)
+                candidate = candidate.strip().strip('"')
+                if candidate and not is_planning_notes(candidate):
+                    person = candidate
+                    break
+            convo.append({"role": "user", "content": person})
             reply = await chat_once(ganyu, g_render, convo, temperature=0.7)
             convo.append({"role": "assistant", "content": reply})
         replies = [m["content"] for m in convo if m["role"] == "assistant"]
