@@ -91,3 +91,46 @@ _NOTES_ANYWHERE = re.compile(
 def is_planning_notes(text: str) -> bool:
     """True if the text is the teacher's planning, not a real chat message."""
     return bool(_NOTES_START.search(text) or _NOTES_ANYWHERE.search(text))
+
+
+# ---------------------------------------------------------------------------
+# Calm-down filter. The teacher over-uses hesitation ("I... I...", "M-my",
+# rows of "..."), and the student copies it. Ganyu is shy, not broken: this
+# keeps at most two hesitations per reply and smooths out the rest.
+# ---------------------------------------------------------------------------
+
+MAX_HESITATIONS = 2
+_ELLIPSIS = re.compile(r"\.\.\.|…")
+
+
+def calm(reply: str) -> str:
+    """Reduce stammering and trailing dots in one of Ganyu's replies."""
+    if re.search(r"[\u3040-\u30ff\u4e00-\u9fff\uac00-\ud7a3]", reply):
+        return reply  # only English replies are edited
+    # "M-my" -> "My", "Th-thank" -> "Thank" (keeps the capital letter)
+    reply = re.sub(r"\b([A-Za-z]{1,2})-(?=\1)(\w)",
+                   lambda m: m.group(2).upper() if m.group(1)[0].isupper() else m.group(2),
+                   reply, flags=re.I)
+    # "I... I am" -> "I am", "That... that is" -> "That is", "I would... I would" -> "I would"
+    reply = re.sub(r"\b(\w+(?: \w+)?)(?:\.\.\.|…),? \1\b", r"\1", reply, flags=re.I)
+
+    out, last, kept = [], 0, 0
+    for m in _ELLIPSIS.finditer(reply):
+        before, after = reply[last:m.start()], reply[m.end():m.end() + 2]
+        out.append(before)
+        last = m.end()
+        so_far = "".join(out).rstrip()
+        at_start = not so_far or so_far.endswith(("\n", "*"))
+        if at_start:
+            continue  # "...Ah." -> "Ah."
+        if kept < MAX_HESITATIONS:
+            kept += 1
+            out.append("...")
+        elif after[:1] in "?!.,":
+            continue  # "marriage...?" -> "marriage?"
+        elif after[:1] == " " and after[1:2].islower():
+            continue  # "we could... start" -> "we could start"
+        else:
+            out.append(".")  # "at Yuejing Terrace... *I" -> "at Yuejing Terrace. *I"
+    out.append(reply[last:])
+    return "".join(out).strip()

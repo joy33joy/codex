@@ -21,7 +21,7 @@ import re
 import tinker
 from tqdm.asyncio import tqdm_asyncio
 
-from common import (DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer,
+from common import (DATA_FILE, TEACHER_MODEL, TEACHER_RENDERER, calm, chat_once, get_renderer,
                     is_planning_notes)
 from persona import (EDGE_QUESTIONS, FORBIDDEN_WORDS, IDENTITY_QUESTIONS, MODERN_QUESTIONS, PERSONA,
                      TOPICS)
@@ -88,7 +88,7 @@ async def main() -> None:
 
     async def make_conversation(question: str) -> list[dict] | None:
         convo = [{"role": "user", "content": question}]
-        reply = await ask(as_ganyu(convo))
+        reply = calm(await ask(as_ganyu(convo)))
         if not looks_ok(reply):
             return None
         convo.append({"role": "assistant", "content": reply})
@@ -106,7 +106,7 @@ async def main() -> None:
                 max_tokens=200,
             )
             if follow_up and not is_planning_notes(follow_up):
-                second = await ask(as_ganyu([*convo, {"role": "user", "content": follow_up}]))
+                second = calm(await ask(as_ganyu([*convo, {"role": "user", "content": follow_up}])))
                 if looks_ok(second):
                     convo += [{"role": "user", "content": follow_up},
                               {"role": "assistant", "content": second}]

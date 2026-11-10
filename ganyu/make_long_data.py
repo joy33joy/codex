@@ -27,7 +27,7 @@ import re
 import tinker
 from tqdm.asyncio import tqdm_asyncio
 
-from common import (LONG_DATA_FILE, REPEAT_LIMIT, TEACHER_MODEL, TEACHER_RENDERER, chat_once,
+from common import (LONG_DATA_FILE, REPEAT_LIMIT, TEACHER_MODEL, TEACHER_RENDERER, calm, chat_once,
                     get_renderer, is_planning_notes, repeat_score)
 from make_data import looks_ok
 from persona import LONG_SCENARIOS, PERSONA
@@ -60,9 +60,13 @@ def narrates(reply: str) -> bool:
 async def main() -> None:
     parser = argparse.ArgumentParser(description="Create long Ganyu training conversations.")
     parser.add_argument("--count", type=int, default=len(LONG_SCENARIOS) * CONVERSATIONS_PER_SCENARIO)
+    parser.add_argument("--min", type=int, default=MIN_EXCHANGES, help="shortest chat, in exchanges")
+    parser.add_argument("--max", type=int, default=MAX_EXCHANGES, help="longest chat, in exchanges")
+    parser.add_argument("--append", action="store_true", help="add to the existing file instead of replacing it")
+    parser.add_argument("--seed", type=int, default=SEED)
     args = parser.parse_args()
 
-    rng = random.Random(SEED)
+    rng = random.Random(args.seed)
     teacher = await tinker.ServiceClient().create_sampling_client(base_model=TEACHER_MODEL)
     renderer = get_renderer(TEACHER_MODEL, TEACHER_RENDERER)
     gate = asyncio.Semaphore(MAX_PARALLEL)
@@ -92,7 +96,7 @@ async def main() -> None:
             earlier = [m["content"] for m in convo if m["role"] == "assistant"]
             reply = ""
             for _ in range(3):  # reject replies that break character or repeat her earlier ones
-                candidate = await ask([{"role": "system", "content": PERSONA}, *history])
+                candidate = calm(await ask([{"role": "system", "content": PERSONA}, *history]))
                 if (looks_ok(candidate) and not narrates(candidate)
                         and repeat_score(candidate, earlier) <= REPEAT_LIMIT):
                     reply = candidate
@@ -103,14 +107,14 @@ async def main() -> None:
         return convo
 
     jobs = [make_conversation(LONG_SCENARIOS[i % len(LONG_SCENARIOS)],
-                              rng.randint(MIN_EXCHANGES, MAX_EXCHANGES))
+                              rng.randint(args.min, args.max))
             for i in range(args.count)]
     print(f"Writing {len(jobs)} long conversations with {TEACHER_MODEL}...")
     convos = await tqdm_asyncio.gather(*jobs)
     kept = [c for c in convos if len(c) >= 2 * 4]  # keep chats that reached at least 4 exchanges
 
     LONG_DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(LONG_DATA_FILE, "w", encoding="utf-8") as f:
+    with open(LONG_DATA_FILE, "a" if args.append else "w", encoding="utf-8") as f:
         for c in kept:
             f.write(json.dumps({"messages": c}, ensure_ascii=False) + "\n")
     replies = sum(len(c) // 2 for c in kept)
