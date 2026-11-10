@@ -48,12 +48,12 @@ async def chat_once(
 
 
 # ---------------------------------------------------------------------------
-# Repeat guard: in long chats a model can start copying its own earlier
-# replies, and once one copy is in the conversation the loop feeds itself.
-# So before showing a reply we check it against everything Ganyu already said.
+# Repetition score: used when BUILDING training data (to reject replies that
+# repeat earlier ones) and by the tests (to measure repetition). It is not
+# used while chatting: the model itself should not repeat.
 # ---------------------------------------------------------------------------
 
-REPEAT_LIMIT = 0.5  # above this, the reply counts as a repeat and is retried
+REPEAT_LIMIT = 0.5  # above this, a reply counts as a repeat
 
 
 def repeat_score(reply: str, earlier_replies: list[str]) -> float:
@@ -67,22 +67,3 @@ def repeat_score(reply: str, earlier_replies: list[str]) -> float:
     reused = sum(s in said for s in sentences) / len(sentences) if sentences else 0.0
     return max(whole, reused)
 
-
-async def reply_as_ganyu(
-    sampling_client: tinker.SamplingClient,
-    renderer: renderers.Renderer,
-    messages: list[dict],
-    temperature: float = 0.7,
-) -> str:
-    """Like chat_once, but retries (a little more freely each time) if Ganyu
-    starts repeating herself, and returns the least repetitive answer."""
-    earlier = [m["content"] for m in messages if m["role"] == "assistant"]
-    best, best_score = "", 2.0
-    for extra in (0.0, 0.2, 0.35, 0.5):
-        reply = await chat_once(sampling_client, renderer, messages, temperature=temperature + extra)
-        score = repeat_score(reply, earlier)
-        if score < best_score:
-            best, best_score = reply, score
-        if score <= REPEAT_LIMIT:
-            break
-    return best

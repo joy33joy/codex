@@ -136,6 +136,7 @@ many times the model reads the data.
 | `my_data/` | Where your own data goes, with a guide and examples |
 | `web_chat.py`, `web/` | Chat with her in your browser |
 | `redteam.py` | Robustness test: tries to knock her out of character |
+| `long_chat_test.py` | Long-chat test: a simulated person talks to her for 30 exchanges in 10 situations; measures repetition and lists problems |
 | `compare.py` | Asks the same questions to the original model and to Ganyu, side by side |
 | `results/` | Saved before/after test output |
 

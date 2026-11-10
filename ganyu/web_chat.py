@@ -21,7 +21,7 @@ from pathlib import Path
 import tinker
 from aiohttp import web
 
-from common import CHECKPOINT_FILE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, get_renderer, reply_as_ganyu
+from common import CHECKPOINT_FILE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, get_renderer
 
 PAGE = Path(__file__).parent / "web" / "index.html"
 MAX_TURNS = 40  # keep only the last 40 messages so requests stay small
@@ -52,7 +52,7 @@ def build_app(model_path: str) -> web.Application:
         if not messages or messages[-1]["role"] != "user":
             return web.json_response({"error": "The last message must be yours."}, status=400)
         try:
-            reply = await reply_as_ganyu(app["ganyu"], renderer, messages)
+            reply = await chat_once(app["ganyu"], renderer, messages, temperature=0.7)
         except Exception as e:
             print(f"Tinker error: {type(e).__name__}: {e}")
             return web.json_response({"error": "Ganyu couldn't answer just now. Please try again."},

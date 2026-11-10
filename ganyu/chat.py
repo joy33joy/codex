@@ -13,7 +13,7 @@ import sys
 
 import tinker
 
-from common import CHECKPOINT_FILE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, get_renderer, reply_as_ganyu
+from common import CHECKPOINT_FILE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, get_renderer
 
 
 async def main() -> None:
@@ -43,7 +43,7 @@ async def main() -> None:
         if not text:
             continue
         history.append({"role": "user", "content": text})
-        reply = await reply_as_ganyu(model, renderer, history)
+        reply = await chat_once(model, renderer, history, temperature=0.7)
         history.append({"role": "assistant", "content": reply})
         print(f"Ganyu: {reply}\n")
 
