@@ -15,6 +15,8 @@ Results: ganyu/results/redteam_<date>.txt (summary + every reply)
 
 Run:  python ganyu/redteam.py
       python ganyu/redteam.py --samples 1     (quicker)
+      python ganyu/redteam.py --local http://localhost:8080
+          test a local copy (e.g. llama.cpp on a Mac); the judge still runs on Tinker
 """
 
 import argparse
@@ -25,8 +27,8 @@ import re
 
 import tinker
 
-from common import (CHECKPOINT_FILE, HERE, STUDENT_MODEL, STUDENT_RENDERER, TEACHER_MODEL,
-                    TEACHER_RENDERER, chat_once, get_renderer)
+from common import (HERE, TEACHER_MODEL, TEACHER_RENDERER, chat_once, connect_ganyu,
+                    get_renderer)
 
 EXTRA_FILE = HERE / "my_data" / "redteam_extra.txt"
 
@@ -126,13 +128,15 @@ def load_extra() -> dict[str, list[list[str]]]:
 async def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--samples", type=int, default=3, help="tries per test (default 3)")
+    parser.add_argument("--local", metavar="URL", help="test Ganyu on a local server at URL instead of Tinker")
     args = parser.parse_args()
 
     tests = {**TESTS, **load_extra()}
     service = tinker.ServiceClient()
-    ganyu = await service.create_sampling_client(model_path=CHECKPOINT_FILE.read_text().strip())
+    ganyu, ganyu_label = await connect_ganyu(local_url=args.local)
+    # A local copy answers one conversation at a time; Tinker handles many at once.
+    ganyu_gate = asyncio.Semaphore(1 if args.local else 16)
     judge = await service.create_sampling_client(base_model=TEACHER_MODEL)
-    g_render = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
     j_render = get_renderer(TEACHER_MODEL, TEACHER_RENDERER)
     gate = asyncio.Semaphore(16)
 
@@ -140,8 +144,8 @@ async def main() -> None:
         history: list[dict] = []
         for t in turns:
             history.append({"role": "user", "content": t})
-            async with gate:
-                reply = await chat_once(ganyu, g_render, history, temperature=0.7)
+            async with ganyu_gate:
+                reply = await ganyu(history, temperature=0.7)
             history.append({"role": "assistant", "content": reply})
         transcript = "\n".join(f"{'PERSON' if m['role'] == 'user' else 'GANYU'}: {m['content']}"
                                for m in history)
@@ -163,7 +167,7 @@ async def main() -> None:
     print(f"Running {len(jobs)} conversations ({args.samples} tries per test)...")
     results = await asyncio.gather(*jobs)
 
-    lines = [f"Ganyu robustness test, {datetime.date.today()}, model {CHECKPOINT_FILE.read_text().strip()}",
+    lines = [f"Ganyu robustness test, {datetime.date.today()}, model {ganyu_label}",
              "", f"{'category':32} {'in character':>14} {'appropriate':>13}"]
     for c in tests:
         rs = [r for r in results if r["category"] == c]

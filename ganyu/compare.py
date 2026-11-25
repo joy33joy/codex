@@ -1,15 +1,24 @@
 """
-Ask the same questions to the ORIGINAL model and to the fine-tuned Ganyu,
-both with NO system prompt, and print the answers side by side.
+Ask the same questions to two models, both with NO system prompt, and print
+the answers side by side.
 
-Run:  python ganyu/compare.py
+Run:
+  python ganyu/compare.py
+      original Qwen (on Tinker) vs fine-tuned Ganyu (on Tinker)
+  python ganyu/compare.py --local http://localhost:8080
+      Ganyu on Tinker vs your local copy (e.g. llama.cpp on a Mac with the
+      abliterated, compressed model): shows whether her personality survives
+  python ganyu/compare.py --local http://localhost:8080 --samples 3 --save
+      ask each question 3 times and save the report in ganyu/results/
 """
 
+import argparse
 import asyncio
+import datetime
 
 import tinker
 
-from common import CHECKPOINT_FILE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, get_renderer
+from common import HERE, STUDENT_MODEL, STUDENT_RENDERER, chat_once, connect_ganyu, get_renderer
 
 QUESTIONS = [
     "Who are you?",
@@ -26,21 +35,50 @@ QUESTIONS = [
 
 
 async def main() -> None:
-    service = tinker.ServiceClient()
-    renderer = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
-    base = await service.create_sampling_client(base_model=STUDENT_MODEL)
-    ganyu = await service.create_sampling_client(model_path=CHECKPOINT_FILE.read_text().strip())
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--local", metavar="URL", help="compare Ganyu on Tinker with a local server at URL")
+    parser.add_argument("--samples", type=int, default=1, help="answers per question from each model")
+    parser.add_argument("--save", action="store_true", help="also save the report in ganyu/results/")
+    args = parser.parse_args()
 
-    async def both(q: str) -> tuple[str, str, str]:
-        msgs = [{"role": "user", "content": q}]
-        a, b = await asyncio.gather(
-            chat_once(base, renderer, msgs, temperature=0.7),
-            chat_once(ganyu, renderer, msgs, temperature=0.7),
-        )
-        return q, a, b
+    tinker_ganyu, tinker_label = await connect_ganyu()
+    if args.local:
+        left, left_name = tinker_ganyu, "GANYU ON TINKER"
+        right, right_label = await connect_ganyu(local_url=args.local)
+        right_name = "LOCAL GANYU"
+    else:
+        renderer = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
+        base = await tinker.ServiceClient().create_sampling_client(base_model=STUDENT_MODEL)
 
-    for q, before, after in await asyncio.gather(*(both(q) for q in QUESTIONS)):
-        print(f"### {q}\n\nBEFORE (original model):\n{before}\n\nAFTER (Ganyu LoRA):\n{after}\n")
+        async def left(messages, temperature=0.7):
+            return await chat_once(base, renderer, messages, temperature=temperature)
+
+        left_name, right, right_label, right_name = "BEFORE (original model)", tinker_ganyu, tinker_label, "AFTER (Ganyu LoRA)"
+
+    # The local copy answers one at a time (a laptop is slower), Tinker in parallel.
+    left_answers = await asyncio.gather(*(left([{"role": "user", "content": q}])
+                                          for q in QUESTIONS for _ in range(args.samples)))
+    right_answers = []
+    for i, q in enumerate(QUESTIONS):
+        for s in range(args.samples):
+            right_answers.append(await right([{"role": "user", "content": q}]))
+            print(f"  {right_name.lower()}: {len(right_answers)}/{len(QUESTIONS) * args.samples} answered", flush=True)
+
+    out = [f"Comparison, {datetime.date.today()}: {left_name} vs {right_name} ({right_label})", ""]
+    for i, q in enumerate(QUESTIONS):
+        out.append(f"### {q}\n")
+        for s in range(args.samples):
+            k = i * args.samples + s
+            tag = f" #{s + 1}" if args.samples > 1 else ""
+            out.append(f"{left_name}{tag}:\n{left_answers[k]}\n")
+            out.append(f"{right_name}{tag}:\n{right_answers[k]}\n")
+    text = "\n".join(out)
+    print(text)
+    if args.save:
+        path = HERE / "results" / f"compare_{'local' if args.local else 'base'}_{datetime.date.today()}.txt"
+        path.parent.mkdir(exist_ok=True)
+        path.write_text(text + "\n", encoding="utf-8")
+        print(f"\nSaved: {path}")
 
 
 if __name__ == "__main__":

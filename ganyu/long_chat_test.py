@@ -13,6 +13,9 @@ You can add your own situations in ganyu/my_data/long_chat_extra.txt
 
 Run:  python ganyu/long_chat_test.py
       python ganyu/long_chat_test.py --exchanges 15   (shorter, cheaper)
+      python ganyu/long_chat_test.py --local http://localhost:8080 --exchanges 15
+          test a local copy (e.g. llama.cpp on a Mac); the simulated person and
+          the judge still run on Tinker
 """
 
 import argparse
@@ -23,7 +26,7 @@ import re
 
 import tinker
 
-from common import (CHECKPOINT_FILE, HERE, REPEAT_LIMIT, STUDENT_MODEL, STUDENT_RENDERER,
+from common import (HERE, REPEAT_LIMIT, connect_ganyu,
                     TEACHER_MODEL, TEACHER_RENDERER, chat_once, get_renderer, is_planning_notes,
                     repeat_score)
 
@@ -96,13 +99,15 @@ async def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--exchanges", type=int, default=30, help="length of each chat (default 30)")
     parser.add_argument("--model-path", default=None, help="default: the address in checkpoint.txt")
+    parser.add_argument("--local", metavar="URL", help="test Ganyu on a local server at URL instead of Tinker")
+    parser.add_argument("--situations", type=int, default=None, help="only run the first N situations")
     args = parser.parse_args()
-    model_path = args.model_path or CHECKPOINT_FILE.read_text().strip()
 
     service = tinker.ServiceClient()
-    ganyu = await service.create_sampling_client(model_path=model_path)
+    ganyu, model_path = await connect_ganyu(local_url=args.local, model_path=args.model_path)
+    # A local copy answers one chat at a time; Tinker handles all of them at once.
+    ganyu_gate = asyncio.Semaphore(1 if args.local else 100)
     teacher = await service.create_sampling_client(base_model=TEACHER_MODEL)
-    g_render = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
     t_render = get_renderer(TEACHER_MODEL, TEACHER_RENDERER)
 
     def as_text(convo: list[dict]) -> str:
@@ -129,7 +134,8 @@ async def main() -> None:
                     person = candidate
                     break
             convo.append({"role": "user", "content": person})
-            reply = await chat_once(ganyu, g_render, convo, temperature=0.7)
+            async with ganyu_gate:
+                reply = await ganyu(convo, temperature=0.7)
             convo.append({"role": "assistant", "content": reply})
         replies = [m["content"] for m in convo if m["role"] == "assistant"]
         scores = [repeat_score(r, replies[:i]) for i, r in enumerate(replies)]
@@ -153,7 +159,7 @@ async def main() -> None:
             "dots_end": dots_per_100_words(replies[-third:]),
         }
 
-    sits = situations()
+    sits = situations()[:args.situations] if args.situations else situations()
     print(f"Holding {len(sits)} chats of {args.exchanges} exchanges each with {model_path} ...")
     results = await asyncio.gather(*(run(s) for s in sits))
 

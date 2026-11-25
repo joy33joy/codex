@@ -135,3 +135,58 @@ def calm(reply: str) -> str:
             out.append(".")  # "at Yuejing Terrace... *I" -> "at Yuejing Terrace. *I"
     out.append(reply[last:])
     return "".join(out).strip()
+
+
+# ---------------------------------------------------------------------------
+# Talking to Ganyu either on Tinker or running locally (llama.cpp's
+# llama-server, Ollama, or any OpenAI-compatible server). The test scripts use
+# this so the same tests can run against a local copy, e.g. on a Mac.
+# ---------------------------------------------------------------------------
+
+
+class LocalGanyu:
+    """Ganyu served by a local OpenAI-compatible server (no system prompt)."""
+
+    def __init__(self, base_url: str, model: str = "ganyu"):
+        self.url = base_url.rstrip("/") + "/v1/chat/completions"
+        self.model = model
+
+    async def __call__(self, messages: list[dict], temperature: float = 0.7, max_tokens: int = 600) -> str:
+        import aiohttp
+
+        body = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+            # Ganyu was trained with "thinking" switched off.
+            "chat_template_kwargs": {"enable_thinking": False},
+        }
+        timeout = aiohttp.ClientTimeout(total=3600)  # a CPU or small GPU can be slow
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            async with session.post(self.url, json=body) as response:
+                data = await response.json()
+                if response.status != 200:
+                    raise RuntimeError(f"Local server error {response.status}: {data}")
+        text = data["choices"][0]["message"].get("content") or ""
+        # Some servers leave an empty thinking block in the text; drop it.
+        text = re.sub(r"^\s*<think>.*?</think>\s*", "", text, flags=re.DOTALL)
+        return text.strip()
+
+
+async def connect_ganyu(local_url: str | None = None, model_path: str | None = None):
+    """Return (ask, label). ask(messages, temperature=0.7) -> Ganyu's reply.
+
+    local_url:  e.g. http://localhost:8080 for llama-server on this computer.
+    model_path: a tinker:// address; default is the one in checkpoint.txt.
+    """
+    if local_url:
+        return LocalGanyu(local_url), f"local model at {local_url}"
+    path = model_path or CHECKPOINT_FILE.read_text().strip()
+    client = await tinker.ServiceClient().create_sampling_client(model_path=path)
+    renderer = get_renderer(STUDENT_MODEL, STUDENT_RENDERER)
+
+    async def ask(messages: list[dict], temperature: float = 0.7, max_tokens: int = 600) -> str:
+        return await chat_once(client, renderer, messages, temperature=temperature, max_tokens=max_tokens)
+
+    return ask, path
