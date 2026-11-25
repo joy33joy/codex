@@ -62,7 +62,8 @@ async def main() -> None:
     for i, q in enumerate(QUESTIONS):
         for s in range(args.samples):
             right_answers.append(await right([{"role": "user", "content": q}]))
-            print(f"  {right_name.lower()}: {len(right_answers)}/{len(QUESTIONS) * args.samples} answered", flush=True)
+            print(f"  {right_name.lower()}: {len(right_answers)}/{len(QUESTIONS) * args.samples} answered"
+                  f"\n    Q: {q}\n    A: {right_answers[-1]}\n", flush=True)
 
     out = [f"Comparison, {datetime.date.today()}: {left_name} vs {right_name} ({right_label})", ""]
     for i, q in enumerate(QUESTIONS):
