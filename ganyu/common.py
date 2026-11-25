@@ -151,7 +151,8 @@ class LocalGanyu:
         self.url = base_url.rstrip("/") + "/v1/chat/completions"
         self.model = model
 
-    async def __call__(self, messages: list[dict], temperature: float = 0.7, max_tokens: int = 600) -> str:
+    async def __call__(self, messages: list[dict], temperature: float = 0.7, max_tokens: int = 600,
+                       lora_scale: float | None = None) -> str:
         import aiohttp
 
         body = {
@@ -162,6 +163,8 @@ class LocalGanyu:
             # Ganyu was trained with "thinking" switched off.
             "chat_template_kwargs": {"enable_thinking": False},
         }
+        if lora_scale is not None:  # llama-server only: switch the loaded adapter (id 0) up or down
+            body["lora"] = [{"id": 0, "scale": lora_scale}]
         timeout = aiohttp.ClientTimeout(total=3600)  # a CPU or small GPU can be slow
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(self.url, json=body) as response:
