@@ -1,0 +1,1 @@
+tinker://9345572d-0c11-58cb-85eb-a68d88bc64a3:train:0/external_weights/ganyu-final
