@@ -85,7 +85,7 @@ mkdir -p ~/ganyu-models && curl -L -C - -o ~/ganyu-models/Huihui-Qwen3.8-27B-abl
 **8.** Quit memory-heavy apps (browsers with many tabs, games, video editors), then start Ganyu:
 
 ```bash
-llama-server -m ~/ganyu-models/Huihui-Qwen3.8-27B-abliterated.Q3_K_M.gguf --lora ~/codex/ganyu/export/ganyu-lora-f16.gguf -ngl 99 -c 8192 --reasoning off --port 8080
+llama-server -m ~/ganyu-models/Huihui-Qwen3.8-27B-abliterated.Q3_K_M.gguf --lora ~/codex/ganyu/export/ganyu-lora-f16.gguf -ngl 99 -c 8192 --cache-ram 0 --reasoning off --port 8080
 ```
 
 Wait until it prints a line ending in `listening on http://127.0.0.1:8080`. The
@@ -105,6 +105,7 @@ What each part of the step 8 command does:
 | `--lora …ganyu-lora-f16.gguf` | Attach the Ganyu adapter |
 | `-ngl 99` | Run everything on the Mac's graphics chip (much faster) |
 | `-c 8192` | Remember up to about 6,000 words of conversation |
+| `--cache-ram 0` | Turn off llama-server's extra conversation cache (up to 8 GB by default), which a 24 GB Mac can't spare |
 | `--reasoning off` | Thinking off, the way she was trained |
 
 ---
