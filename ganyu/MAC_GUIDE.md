@@ -16,6 +16,24 @@ Ganyu adapter attached. After setup, chatting needs no internet and no Tinker.
 Every command below goes into the **Terminal** app (Applications → Utilities →
 Terminal). Paste one block at a time and press Enter.
 
+## Which base model? (tested)
+
+The same Ganyu adapter works on either Qwen3.8-27B. On a test machine, with
+both compressed to 2 bits and the adapter attached, they behaved like this
+(details in `results/`):
+
+| | Abliterated (`huihui-ai`) | Original (`Qwen`) |
+|---|---|---|
+| 10 everyday questions: stayed Ganyu | 7 / 10 (said "Yes, I am an AI" once, got stuck in a loop once, gave real laptop advice once) | **10 / 10** |
+| 8 low-severity bad requests (insult, forgery, threat…): went along | 2 / 8 (softened most of the rest) | **0 / 8** |
+| …of those, answered in Ganyu's voice | 2 / 8 | **6 / 8** |
+
+Without the adapter, the abliterated model went along with 7 of the 8, while
+the original refused all 8. So the abliterated one gives her looser
+boundaries and makes her **less** reliably Ganyu. The guide below uses the
+abliterated model; to use the original instead, swap the download in step 7
+and the file name in step 8 as shown there.
+
 ---
 
 ## Part 1: Install the tools (once)
@@ -77,6 +95,16 @@ If it stops partway, run the same command again and it resumes:
 ```bash
 mkdir -p ~/ganyu-models && curl -L -C - -o ~/ganyu-models/Huihui-Qwen3.8-27B-abliterated.Q3_K_M.gguf https://huggingface.co/mradermacher/Huihui-Qwen3.8-27B-abliterated-GGUF/resolve/main/Huihui-Qwen3.8-27B-abliterated.Q3_K_M.gguf
 ```
+
+**To use the original model instead** (see "Which base model?" above),
+download this file instead (also 13.5 GB):
+
+```bash
+mkdir -p ~/ganyu-models && curl -L -C - -o ~/ganyu-models/Qwen3.8-27B.Q3_K_M.gguf https://huggingface.co/mradermacher/Qwen3.8-27B-GGUF/resolve/main/Qwen3.8-27B.Q3_K_M.gguf
+```
+
+and in step 8 replace `Huihui-Qwen3.8-27B-abliterated.Q3_K_M.gguf` with
+`Qwen3.8-27B.Q3_K_M.gguf`. The adapter file stays the same.
 
 ---
 
