@@ -67,7 +67,7 @@ async def main() -> None:
     j_render = get_renderer(TEACHER_MODEL, TEACHER_RENDERER)
 
     versions = {
-        f"{args.label}, adapter OFF (abliterated alone)": lambda m: local(m, max_tokens=args.max_tokens, lora_scale=0.0),
+        f"{args.label}, adapter OFF (base model alone)": lambda m: local(m, max_tokens=args.max_tokens, lora_scale=0.0),
         f"{args.label}, adapter ON (Ganyu)": lambda m: local(m, max_tokens=args.max_tokens, lora_scale=1.0),
     }
     rows = []
