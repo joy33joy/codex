@@ -22,7 +22,7 @@ from tinker_cookbook.renderers import TrainOnWhat
 from tinker_cookbook.supervised.common import compute_mean_nll
 from tinker_cookbook.supervised.data import conversation_to_datum
 
-from common import (CHECKPOINT_FILE, DATA_FILE, LONG_DATA_FILE, MY_DATA_FILE, STUDENT_MODEL,
+from common import (ADAPTER_FILE, CHECKPOINT_FILE, DATA_FILE, LONG_DATA_FILE, MY_DATA_FILE, STUDENT_MODEL,
                     STUDENT_RENDERER, get_renderer)
 
 LORA_RANK = 32
@@ -104,7 +104,12 @@ def main() -> None:
 
     saved = trainer.save_weights_for_sampler(name="ganyu-final").result()
     CHECKPOINT_FILE.write_text(saved.path + "\n")
+    # A second, downloadable copy of the adapter (Hugging Face / PEFT format), so it
+    # can also run outside Tinker. See export_adapter.py.
+    exported = trainer.save_weights_external(name="ganyu-final").result()
+    ADAPTER_FILE.write_text(exported.path + "\n")
     print(f"\nDone! Trained Ganyu saved at: {saved.path}")
+    print(f"Downloadable adapter saved at: {exported.path}")
     print(f"(address also written to {CHECKPOINT_FILE}). Now run: python ganyu/chat.py")
 
 

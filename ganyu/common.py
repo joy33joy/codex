@@ -22,6 +22,7 @@ DATA_FILE = HERE / "data" / "ganyu_train.jsonl"  # made by make_data.py
 LONG_DATA_FILE = HERE / "data" / "ganyu_long.jsonl"  # made by make_long_data.py (long chats)
 MY_DATA_FILE = HERE / "data" / "my_train.jsonl"  # made by prepare_my_data.py from your files
 CHECKPOINT_FILE = HERE / "checkpoint.txt"  # where the trained model's address is saved
+ADAPTER_FILE = HERE / "adapter.txt"  # address of the downloadable copy of the adapter (for export)
 
 
 def get_renderer(model_name: str, renderer_name: str) -> renderers.Renderer:
